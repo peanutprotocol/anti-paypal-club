@@ -1,0 +1,8 @@
+# local generators & source data — not part of the deployed site
+gen-*.mjs
+extract-verified.mjs
+# thumbnail scratch
+assets/te-*.jpg
+assets/th-*.jpg
+assets/thumb-*.jpg
+.DS_Store

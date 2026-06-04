@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>★彡 ANTI PAYPAL CLUB 彡★ ~*~ frozen funds shrine ~*~</title>
+<meta name="description" content="A cypherpunk shrine to everyone PayPal froze. 26 fact-checked horror stories. Not your keys, not your coins." />
+<meta property="og:title" content="ANTI PAYPAL CLUB ❄ frozen funds shrine" />
+<meta property="og:description" content="26 fact-checked PayPal horror stories. NOT YOUR KEYS NOT YOUR COINS." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❄️</text></svg>" />
+<style>
+  :root{
+    --green:#39ff14; --pink:#ff44d4; --cyan:#00f0ff; --purple:#b14dff; --gold:#ffd23f;
+    --black:#05060a; --panel:#0a0c16; --line:#23ffd9;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      repeating-linear-gradient(0deg, rgba(57,255,20,.035) 0 2px, transparent 2px 4px),
+      radial-gradient(circle at 50% -10%, rgba(177,77,255,.25), transparent 55%),
+      var(--black);
+    color:#dfe7ff; font-family:"Courier New", monospace; overflow-x:hidden;
+    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><text y='22' font-size='22'>❄</text></svg>") 6 6, auto;
+  }
+  #matrix{position:fixed;inset:0;z-index:0;opacity:.18;pointer-events:none;}
+  .page{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:0 12px 60px;}
+
+  /* marquee bars */
+  .tape{background:#000;border-top:2px solid var(--pink);border-bottom:2px solid var(--pink);
+    color:var(--green);font-weight:bold;letter-spacing:.08em;font-size:14px;text-shadow:0 0 6px var(--green);}
+  .tape.alt{border-color:var(--cyan);color:var(--cyan);text-shadow:0 0 6px var(--cyan);}
+
+  /* glitter / chrome title */
+  .hdr{text-align:center;padding:26px 8px 10px;}
+  .glitter{
+    font-family:Impact,"Arial Black",sans-serif;font-size:clamp(40px,10vw,92px);line-height:.95;margin:0;
+    background:linear-gradient(120deg,#fff,var(--cyan),var(--pink),var(--gold),#fff);
+    background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+    -webkit-text-stroke:1.5px rgba(255,255,255,.4);
+    animation:slide 6s linear infinite; filter:drop-shadow(0 0 14px rgba(255,68,212,.7));letter-spacing:-1px;}
+  @keyframes slide{to{background-position:300% 0;}}
+  .tagline{color:var(--pink);font-size:14px;text-shadow:0 0 6px var(--pink);margin-top:6px;}
+  .tagline b{color:var(--green);text-shadow:0 0 6px var(--green);}
+  .blink{animation:blink 1s steps(2) infinite;} @keyframes blink{50%{opacity:0;}}
+  .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:12px 0 4px;}
+  .wbtn{font-family:"Courier New",monospace;font-size:10px;font-weight:bold;border:1px solid #555;
+    background:linear-gradient(#222,#000);color:#9fe;padding:4px 8px;text-shadow:0 0 4px var(--cyan);
+    box-shadow:inset 0 0 0 1px #000;}
+  .wbtn.pk{color:var(--pink);text-shadow:0 0 4px var(--pink);}
+  .wbtn.gn{color:var(--green);text-shadow:0 0 4px var(--green);}
+
+  /* generic neon window */
+  .win{border:2px solid var(--line);background:rgba(8,10,22,.86);margin:18px 0;
+    box-shadow:0 0 24px rgba(35,255,217,.25), inset 0 0 30px rgba(177,77,255,.08);}
+  .win>.bar{display:flex;justify-content:space-between;align-items:center;
+    background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;font-weight:bold;
+    padding:5px 10px;font-size:13px;text-shadow:0 1px 0 #000;border-bottom:2px solid var(--line);}
+  .win>.bar .dots span{display:inline-block;width:11px;height:11px;border:1px solid #000;margin-left:3px;background:#dcd;}
+  .win>.in{padding:16px;}
+
+  /* hero notice */
+  .hero{display:grid;grid-template-columns:1.4fr .9fr;gap:16px;align-items:center;}
+  @media(max-width:720px){.hero{grid-template-columns:1fr;}}
+  .term{font-family:"Courier New",monospace;color:var(--green);text-shadow:0 0 6px rgba(57,255,20,.7);font-size:15px;line-height:1.7;}
+  .term .big{display:block;font-size:clamp(22px,4vw,34px);color:#fff;text-shadow:0 0 10px var(--pink);margin:6px 0 12px;font-weight:bold;}
+  .term .amt{color:var(--gold);text-shadow:0 0 8px var(--gold);}
+  .cur{display:inline-block;width:10px;height:1.1em;background:var(--green);vertical-align:-2px;animation:blink 1s steps(2) infinite;}
+  .mascot{border:3px ridge var(--pink);background:#000;padding:4px;transform:rotate(-2deg);}
+  .mascot img{display:block;width:100%;height:auto;image-rendering:auto;}
+  .mascot .cap{font-size:11px;color:var(--cyan);text-align:center;padding:4px 0 2px;text-shadow:0 0 5px var(--cyan);}
+
+  /* stat band */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0;}
+  @media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr);}}
+  .stat{border:2px dashed var(--cyan);text-align:center;padding:12px 6px;background:rgba(0,240,255,.05);}
+  .stat b{display:block;font-family:Impact,sans-serif;font-size:30px;color:var(--gold);text-shadow:0 0 10px var(--gold);}
+  .stat span{font-size:11px;color:var(--cyan);text-transform:uppercase;letter-spacing:.05em;}
+
+  /* wall of pain */
+  .wall{column-count:2;column-gap:14px;}
+  @media(max-width:680px){.wall{column-count:1;}}
+  .cmt{break-inside:avoid;border:2px solid var(--purple);background:linear-gradient(180deg,rgba(177,77,255,.10),rgba(0,0,0,.4));
+    margin:0 0 14px;padding:10px;box-shadow:0 0 14px rgba(177,77,255,.25);}
+  .cmt .who{display:flex;gap:8px;align-items:center;margin-bottom:8px;}
+  .cmt .av{width:46px;height:46px;flex:0 0 46px;border:2px solid var(--cyan);background:#000;object-fit:cover;}
+  .cmt .nm{font-weight:bold;color:var(--green);text-shadow:0 0 5px var(--green);font-size:14px;line-height:1.2;}
+  .cmt .mt{font-size:10.5px;color:#89f;}
+  .cmt blockquote{margin:0;color:#eaf0ff;font-size:13.5px;line-height:1.5;
+    background:rgba(0,0,0,.4);border-left:3px solid var(--pink);padding:8px 10px;}
+  .cmt .ft{display:flex;justify-content:space-between;align-items:center;margin-top:7px;font-size:10.5px;}
+  .cmt .vf{color:var(--green);font-weight:bold;text-shadow:0 0 5px var(--green);}
+  .cmt a{color:var(--cyan);text-decoration:none;} .cmt a:hover{text-decoration:underline;}
+
+  /* escape / peanut */
+  .escape{text-align:center;border:3px ridge var(--gold);background:radial-gradient(circle at 50% 30%,rgba(255,210,63,.16),rgba(0,0,0,.5));}
+  .escape h2{font-family:Impact,sans-serif;font-size:clamp(28px,7vw,56px);margin:6px 0;color:#fff;
+    text-shadow:0 0 16px var(--gold), 0 0 30px var(--pink);}
+  .escape p{color:#ffe9a8;max-width:520px;margin:6px auto 14px;}
+  .portal{display:inline-block;margin:8px auto;text-decoration:none;font-family:Impact,sans-serif;font-size:26px;
+    color:#1a1400;background:linear-gradient(90deg,var(--gold),#fff,var(--gold));background-size:200%;
+    padding:14px 30px;border:3px outset var(--gold);text-shadow:0 1px 0 #fff;animation:slide 3s linear infinite;}
+  .portal:hover{filter:brightness(1.1);}
+  .esc-mascot{width:150px;display:block;margin:4px auto 0;filter:drop-shadow(0 0 12px var(--gold));}
+
+  /* footer / webring */
+  .ring{text-align:center;color:#9fe;font-size:13px;margin:18px 0;}
+  .ring a{color:var(--pink);text-decoration:none;text-shadow:0 0 5px var(--pink);}
+  .counter{display:inline-block;background:#000;border:1px solid var(--green);color:var(--green);
+    font-family:"Courier New",monospace;letter-spacing:3px;padding:3px 8px;text-shadow:0 0 6px var(--green);}
+  footer{margin-top:24px;border-top:1px dashed #345;padding-top:14px;color:#7184a8;font-size:11px;line-height:1.7;text-align:center;}
+  footer a{color:var(--cyan);}
+  .sparkle{position:fixed;z-index:9999;pointer-events:none;font-size:16px;will-change:transform,opacity;}
+  /* tiny audio toggle */
+  #snd{position:fixed;right:10px;bottom:10px;z-index:50;background:#000;border:1px solid var(--pink);
+    color:var(--pink);font-family:"Courier New",monospace;font-size:12px;padding:6px 10px;cursor:pointer;text-shadow:0 0 5px var(--pink);}
+
+  /* === microinteraction 1: frost-on-hover quote cards === */
+  .cmt{position:relative;overflow:hidden;transition:border-color .3s, box-shadow .3s;}
+  .cmt::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .55s ease;
+    background:
+      linear-gradient(115deg,transparent 47%,rgba(255,255,255,.4) 48.5%,transparent 50%),
+      linear-gradient(205deg,transparent 58%,rgba(255,255,255,.28) 59.5%,transparent 61%),
+      radial-gradient(130% 70% at 25% 0%,rgba(255,255,255,.5),transparent 60%),
+      radial-gradient(120% 90% at 85% 100%,rgba(150,220,255,.45),transparent 55%);
+    mix-blend-mode:screen;}
+  .cmt:hover::after{opacity:1;}
+  .cmt:hover{border-color:var(--cyan);box-shadow:0 0 20px rgba(0,240,255,.5);}
+
+  /* === microinteraction 4: stat glitch === */
+  @keyframes glitch{0%,100%{transform:none;text-shadow:0 0 10px var(--gold);}
+    20%{transform:translate(-2px,1px);text-shadow:2px 0 var(--pink),-2px 0 var(--cyan);}
+    40%{transform:translate(2px,-1px);text-shadow:-2px 0 var(--pink),2px 0 var(--cyan);}
+    60%{transform:translate(-1px,0);text-shadow:0 0 10px var(--gold);}}
+  .stat b.glitching{animation:glitch .4s steps(2) 2;}
+
+  /* === microinteraction 6: defrosting CTA === */
+  .portal.ice{position:relative;overflow:hidden;}
+  .portal.ice::before{content:"";position:absolute;inset:0;z-index:3;transition:opacity .55s ease;
+    background:
+      linear-gradient(120deg,transparent 45%,rgba(255,255,255,.75) 47%,transparent 49%),
+      linear-gradient(210deg,transparent 55%,rgba(255,255,255,.55) 57%,transparent 59%),
+      linear-gradient(180deg,rgba(228,247,255,.96),rgba(150,205,235,.92));
+    box-shadow:inset 0 0 22px rgba(120,180,220,.85);}
+  .portal.ice:hover::before{opacity:0;}
+  .esc-mascot{transition:transform .2s;}
+  @keyframes flap{0%,100%{transform:rotate(0) scale(1);}25%{transform:rotate(-7deg) scale(1.07);}75%{transform:rotate(7deg) scale(1.07);}}
+  .esc-mascot.flap{animation:flap .45s ease;}
+  #flash{position:fixed;inset:0;z-index:99998;background:#fff;opacity:0;pointer-events:none;}
+  #flash.go{animation:flashfade .5s ease;}
+  @keyframes flashfade{0%{opacity:.9;}100%{opacity:0;}}
+
+  /* === frozen tamagotchi === */
+  .pet{display:grid;grid-template-columns:288px 1fr;gap:18px;}
+  @media(max-width:680px){.pet{grid-template-columns:1fr;}}
+  .pet .stage{position:relative;border:2px solid var(--cyan);min-height:300px;display:flex;align-items:center;justify-content:center;
+    padding:12px;overflow:hidden;background:radial-gradient(circle at 50% 35%,rgba(0,240,255,.12),rgba(0,0,0,.55));}
+  .pet .sprite{width:210px;max-width:82%;height:auto;filter:drop-shadow(0 0 14px rgba(255,68,212,.5));transition:filter .4s;}
+  .pet .sprite.bob{animation:bob 2.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+  .pet .sprite.hop{animation:hop .5s ease;}
+  @keyframes hop{0%,100%{transform:translateY(0) scale(1);}40%{transform:translateY(-22px) scale(1.06);}}
+  .pet.frozen .sprite{filter:grayscale(.5) brightness(1.12) drop-shadow(0 0 16px var(--cyan));animation:none;}
+  .pet .ice{position:absolute;inset:0;display:none;pointer-events:none;background:
+    linear-gradient(120deg,transparent 44%,rgba(255,255,255,.5) 47%,transparent 50%),
+    linear-gradient(210deg,transparent 54%,rgba(255,255,255,.4) 57%,transparent 60%),
+    linear-gradient(180deg,rgba(200,238,255,.4),rgba(120,180,220,.5));}
+  .pet.frozen .ice{display:block;}
+  .pet .stamp{position:absolute;top:14px;left:50%;transform:translateX(-50%) rotate(-8deg);display:none;z-index:4;
+    border:3px solid var(--cyan);color:var(--cyan);font-family:Impact,sans-serif;font-size:24px;padding:1px 12px;
+    text-shadow:0 0 8px var(--cyan);background:rgba(0,0,0,.35);letter-spacing:2px;}
+  .pet.frozen .stamp{display:block;}
+  .pet .nm{position:absolute;top:8px;left:10px;z-index:5;color:var(--green);font-weight:bold;font-size:13px;text-shadow:0 0 5px var(--green);}
+  .pet .age{position:absolute;top:8px;right:10px;z-index:5;color:var(--gold);font-size:11px;}
+  .pet .bubble{position:absolute;bottom:8px;left:8px;right:8px;z-index:6;background:#000;border:1px solid var(--pink);
+    color:#ffe9ff;font-size:12px;padding:6px 9px;text-align:center;min-height:1.3em;}
+  .pet .ctl{display:flex;flex-direction:column;gap:11px;justify-content:center;}
+  .meter .lab{display:flex;justify-content:space-between;color:#9fe;margin-bottom:3px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
+  .bar2{height:15px;border:1px solid #2a3550;background:#0a0f1c;overflow:hidden;}
+  .bar2 i{display:block;height:100%;width:50%;transition:width .4s ease;}
+  .bar2.hunger i{background:linear-gradient(90deg,#ff7b00,var(--gold));}
+  .bar2.happy i{background:linear-gradient(90deg,var(--pink),#ff9de6);}
+  .bar2.warmth i{background:linear-gradient(90deg,#00a3ff,var(--cyan));}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;}
+  .pbtn{flex:1;min-width:82px;font-family:"Courier New",monospace;font-weight:bold;font-size:13px;cursor:pointer;
+    border:2px solid var(--pink);background:#13091c;color:var(--pink);padding:9px 6px;text-shadow:0 0 5px var(--pink);}
+  .pbtn:hover{background:#1d0e2b;} .pbtn:disabled{opacity:.35;cursor:not-allowed;}
+  .pbtn.defrost{border-color:var(--gold);color:var(--gold);text-shadow:0 0 6px var(--gold);background:#1a1400;font-size:14px;animation:pulse 1.1s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{box-shadow:0 0 6px rgba(255,210,63,.5);}50%{box-shadow:0 0 20px rgba(255,210,63,.95);background:#241d00;}}
+  .pbtn.defrost:hover{background:#241d00;}
+  .streak{color:var(--gold);font-size:12px;text-align:center;}
+  .adopt{text-align:center;color:#cff;}
+  .adopt input{background:#000;border:1px solid var(--cyan);color:#cff;font-family:"Courier New",monospace;padding:8px;font-size:14px;width:62%;}
+  .heart{position:absolute;z-index:7;pointer-events:none;font-size:22px;animation:floatup 1s ease forwards;}
+  @keyframes floatup{to{transform:translateY(-72px);opacity:0;}}
+
+  /* === tamagotchi v2: shards / shop / combo === */
+  .pet .sprite{cursor:pointer;}
+  .pet .sprite:active{transform:scale(.94);}
+  .wallet{display:flex;justify-content:space-between;font-size:13px;color:var(--gold);margin-bottom:6px;text-shadow:0 0 5px rgba(255,210,63,.5);}
+  .wallet b{color:#fff;}
+  .bar2.xp{height:8px;} .bar2.xp i{background:linear-gradient(90deg,var(--purple),var(--pink));width:0;}
+  .shop{display:flex;gap:7px;margin-top:11px;}
+  .ubtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;font-family:"Courier New",monospace;
+    font-size:12px;font-weight:bold;border:2px solid var(--cyan);background:#04131a;color:var(--cyan);padding:7px 4px;text-shadow:0 0 4px var(--cyan);}
+  .ubtn small{color:#7fd;font-weight:normal;font-size:10px;}
+  .ubtn b{color:var(--gold);font-size:11px;}
+  .ubtn:hover{background:#072330;} .ubtn.cant{opacity:.45;}
+  .combo{position:absolute;top:64px;left:50%;transform:translateX(-50%);z-index:6;font-family:Impact,sans-serif;
+    font-size:30px;color:var(--gold);text-shadow:0 0 12px var(--gold);opacity:0;transition:opacity .15s;pointer-events:none;}
+  .combo.on{opacity:1;}
+  .toast{position:absolute;top:30px;left:50%;transform:translateX(-50%);z-index:8;background:#1a1400;border:1px solid var(--gold);
+    color:var(--gold);font-size:12px;padding:4px 10px;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none;text-shadow:0 0 5px var(--gold);}
+  .toast.show{opacity:1;}
+  .flo{position:absolute;z-index:7;pointer-events:none;font-weight:bold;animation:floatup 1s ease forwards;}
+</style>
+</head>
+<body>
+<canvas id="matrix"></canvas>
+
+<marquee class="tape" scrollamount="9">⚠ WARNING ⚠ YOUR FUNDS MAY BE FROZEN AT ANY TIME FOR NO REASON · 180 DAY HOLDS · 1 IN 5 EBAY SELLERS GETS LIMITED · NOT YOUR KEYS NOT YOUR COINS · THEY ARE THEIR OWN JUDGE, JURY AND LITIGATOR · ⚠ TRUST NO THIRD PARTY ⚠ &nbsp;&nbsp;&nbsp;</marquee>
+
+<div class="page">
+
+  <div class="hdr">
+    <h1 class="glitter">ANTI PAYPAL CLUB</h1>
+    <div class="tagline">est. 2026 · a <b>cypherpunk shrine</b> to frozen funds <span class="blink">❄</span></div>
+    <div class="badges">
+      <span class="wbtn gn">[ BEST VIEWED IN NETSCAPE @ 800×600 ]</span>
+      <span class="wbtn pk">[ NOT YOUR KEYS · NOT YOUR COINS ]</span>
+      <span class="wbtn">[ 100% FACT-CHECKED ✓ ]</span>
+    </div>
+  </div>
+
+  <!-- HERO NOTICE -->
+  <div class="win">
+    <div class="bar"><span>⌨ system_notice.exe</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="in hero">
+      <div class="term">
+        &gt; incoming transmission from <span style="color:var(--pink)">PAYPAL</span>...<br/>
+        &gt; re: your account<br/>
+        <span class="big">"WE'VE PLACED A HOLD ON YOUR FUNDS."</span>
+        &gt; reason ............ <span style="color:var(--pink)">[REDACTED]</span><br/>
+        &gt; amount held ....... <span class="amt">$14,000.00</span><br/>
+        &gt; appeals .......... none<br/>
+        &gt; access resumes ... in 180 days<br/>
+        &gt; humans available . 0<span class="cur"></span>
+      </div>
+      <div class="mascot" id="m-jail">
+        <img src="assets/mila-jail.png" alt="frozen mascot" onerror="this.parentNode.style.display='none'"/>
+        <div class="cap">you, after the email ❄️😭</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats" id="stats">
+    <div class="stat"><b data-to="180">0</b><span>days held</span></div>
+    <div class="stat"><b data-to="600" data-prefix="€" data-suffix="k" data-glitch="1">0</b><span>Notch froze</span></div>
+    <div class="stat"><b data-to="1.3" data-dec="1" data-suffix="★">0</b><span>Trustpilot</span></div>
+    <div class="stat"><b>1 in 5</b><span>eBay sellers</span></div>
+  </div>
+
+  <!-- WALL OF PAIN -->
+  <div class="win">
+    <div class="bar"><span>💀 wall_of_pain.html — 26 fact-checked testimonies</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="in">
+      <p style="margin:0 0 12px;color:var(--cyan);font-size:13px;text-shadow:0 0 5px var(--cyan)">
+        ✦ every quote below was checked against its cited source (Hacker News, Village Voice, Trustpilot, merchant reviews). <b style="color:var(--green)">100% real.</b> sign the guestbook to add yours ↓</p>
+      <div class="wall" id="wall"></div>
+    </div>
+  </div>
+
+  <!-- FROZEN TAMAGOTCHI -->
+  <div class="win">
+    <div class="bar"><span>🥶 frozen_pet.exe — tap to mine ❄shards · saves to your browser · daily</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="in">
+      <div class="pet" id="pet">
+        <div class="stage">
+          <span class="nm" id="pet-nm"></span>
+          <span class="age" id="pet-age"></span>
+          <img class="sprite bob" id="pet-sprite" src="assets/mila-pet-happy.png" alt="your frozen pet" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/mila-pet-happy.png';}" title="tap me!"/>
+          <div class="ice"></div>
+          <div class="stamp">FROZEN</div>
+          <div class="combo" id="pet-combo"></div>
+          <div class="toast" id="pet-toast"></div>
+          <div class="bubble" id="pet-bubble">...</div>
+        </div>
+        <div class="ctl">
+          <div id="pet-live" style="display:none">
+            <div class="wallet"><span>❄ <b id="v-shards">0</b> shards</span><span>Lv <b id="v-lvl">1</b> · <span id="v-title">Frostling</span></span></div>
+            <div class="bar2 xp"><i id="b-xp"></i></div>
+            <div class="meter" style="margin-top:8px"><div class="lab"><span>🍱 Fed</span><span id="v-hunger">—</span></div><div class="bar2 hunger"><i id="b-hunger"></i></div></div>
+            <div class="meter" style="margin-top:7px"><div class="lab"><span>💖 Happy</span><span id="v-happy">—</span></div><div class="bar2 happy"><i id="b-happy"></i></div></div>
+            <div class="meter" style="margin-top:7px"><div class="lab"><span>🔥 Warm</span><span id="v-warmth">—</span></div><div class="bar2 warmth"><i id="b-warmth"></i></div></div>
+            <div class="actions" style="margin-top:11px">
+              <button class="pbtn" id="a-feed">🍱 Feed</button>
+              <button class="pbtn" id="a-play">🎮 Play</button>
+              <button class="pbtn" id="a-warm">🔥 Warm</button>
+            </div>
+            <div class="shop">
+              <button class="ubtn" id="u-tap">👆 Tap+ <small>Lv<span id="lv-tap">0</span></small><b id="c-tap">25❄</b></button>
+              <button class="ubtn" id="u-mine">⛏ Rig <small>Lv<span id="lv-mine">0</span></small><b id="c-mine">30❄</b></button>
+              <button class="ubtn" id="u-coat">🧥 Coat <small>Lv<span id="lv-coat">0</span></small><b id="c-coat">60❄</b></button>
+            </div>
+            <button class="pbtn defrost" id="a-defrost" style="display:none;width:100%;margin-top:10px">❄ DEFROST WITH PEANUT (free)</button>
+            <button class="pbtn" id="a-paythaw" style="display:none;width:100%;margin-top:8px">⏩ pay 50 ❄ to thaw now</button>
+            <div class="streak" id="pet-streak" style="margin-top:9px"></div>
+          </div>
+          <div class="adopt" id="pet-adopt" style="display:none">
+            <p>a stray frozen chibi appeared on your network. name it &amp; adopt:</p>
+            <input id="pet-name" maxlength="16" placeholder="name your pet" />
+            <div style="margin-top:12px"><button class="pbtn" id="a-adopt" style="width:60%">★ ADOPT ★</button></div>
+            <p style="font-size:11px;color:#789;margin-top:12px">⚠ tap it to mine ❄shards. PayPal freezes it at random — mining STOPS while frozen. only Peanut defrosts instantly &amp; free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESCAPE / PEANUT -->
+  <div class="win escape">
+    <div class="in">
+      <img class="esc-mascot" src="assets/mila-angel.png" alt="" onerror="this.style.display='none'"/>
+      <h2>ESCAPE THE FREEZE</h2>
+      <p>not your keys, not your coins. no 180-day holds on your own money. clear fees. cross-border without the conversion games.</p>
+      <a class="portal ice" id="peanut-portal" href="https://peanut.me?utm_source=antipaypal&utm_medium=referral&utm_campaign=cypherpunk" rel="noopener" target="_blank">&gt;&gt; peanut.me &lt;&lt;</a>
+      <div class="badges" style="margin-top:14px;">
+        <span class="wbtn gn">[ POWERED BY ☮ PEANUT ]</span>
+        <span class="wbtn pk">[ ❄ DEFROST YOUR MONEY ❄ ]</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEBRING / GUESTBOOK -->
+  <div class="ring">
+    ✦ ~ frozen funds webring ~ ✦<br/>
+    [ <a href="#">&lt;&lt; prev</a> | <a href="#">? random</a> | <a href="#">next &gt;&gt;</a> ]<br/><br/>
+    <a class="portal" style="font-size:18px;padding:10px 22px;" href="https://NOTION-FORM-URL-HERE" target="_blank" rel="noopener">✍ SIGN THE GUESTBOOK</a><br/><br/>
+    you are visitor # <span class="counter" id="counter">0000000</span><br/>
+    <span style="color:var(--gold)">🚧 this site is eternally under construction 🚧</span>
+  </div>
+
+  <footer>
+    Anti PayPal Club is an opinion &amp; comparison shrine. "PayPal" is a trademark of its owner, used here only to identify
+    and compare the service. All 26 testimonies are real and sourced from public posts (links on each). Stats are illustrative.
+    Operated by the team behind <a href="https://peanut.me?utm_source=antipaypal&utm_medium=footer" target="_blank" rel="noopener">Peanut</a>; may earn from referrals.<br/>
+    © <span id="yr"></span> Anti PayPal Club · made with ♥ and rage on a Friday
+  </footer>
+</div>
+
+<button id="snd">♪ play anthem</button>
+
+<script src="assets/quotes.js"></script>
+<script>
+/* ---------- matrix rain ---------- */
+(function(){
+  const c=document.getElementById('matrix'),x=c.getContext('2d');
+  let w,h,cols,drops;const chars="01❄$¥€☠アイウ%#";
+  function size(){w=c.width=innerWidth;h=c.height=innerHeight;cols=Math.floor(w/14);drops=Array(cols).fill(1);}
+  size();addEventListener('resize',size);
+  setInterval(()=>{
+    x.fillStyle="rgba(5,6,10,.08)";x.fillRect(0,0,w,h);
+    x.fillStyle="#39ff14";x.font="14px monospace";
+    for(let i=0;i<cols;i++){const t=chars[Math.floor(Math.random()*chars.length)];
+      x.fillText(t,i*14,drops[i]*14);
+      if(drops[i]*14>h&&Math.random()>.975)drops[i]=0;drops[i]++;}
+  },55);
+})();
+
+/* ---------- sparkle cursor trail ---------- */
+(function(){
+  const glyphs=["✦","✧","❄","✩","💖","★"];let last=0;
+  addEventListener('mousemove',e=>{
+    const now=Date.now();if(now-last<28)return;last=now;
+    const s=document.createElement('div');s.className='sparkle';
+    s.textContent=glyphs[Math.floor(Math.random()*glyphs.length)];
+    s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';
+    s.style.color=['#ff44d4','#00f0ff','#39ff14','#ffd23f'][Math.floor(Math.random()*4)];
+    document.body.appendChild(s);
+    const dx=(Math.random()-.5)*40,dy=20+Math.random()*30;const t0=now;
+    (function anim(){const k=(Date.now()-t0)/700;if(k>=1){s.remove();return;}
+      s.style.transform=`translate(${dx*k}px,${dy*k}px) scale(${1-k})`;s.style.opacity=1-k;
+      requestAnimationFrame(anim);})();
+  });
+})();
+
+/* ---------- render the verified wall ---------- */
+(function(){
+  const avs=['assets/mila-hacker.png','assets/mila-rage.png','assets/mila-jail.png','assets/mila-angel.png'];
+  const wall=document.getElementById('wall');
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  (window.VERIFIED||[]).forEach((v,i)=>{
+    const meta=[v.date,v.plat].filter(Boolean).join(' · ');
+    const el=document.createElement('div');el.className='cmt';
+    el.innerHTML=`
+      <div class="who">
+        <img class="av" src="${avs[i%avs.length]}" alt="" onerror="this.style.visibility='hidden'"/>
+        <div><div class="nm">${esc(v.author)}</div><div class="mt">${esc(meta)}</div></div>
+      </div>
+      <blockquote>${esc(v.q)}</blockquote>
+      <div class="ft"><span class="vf">✓ FACT-CHECKED</span><a href="${v.url}" target="_blank" rel="noopener">source ↗</a></div>`;
+    wall.appendChild(el);
+  });
+})();
+
+/* ---------- visitor counter (decorative) ---------- */
+(function(){
+  const base=1337042+Math.floor(Math.random()*900);
+  document.getElementById('counter').textContent=String(base).padStart(7,'0');
+})();
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ---------- chiptune anthem (off by default) ---------- */
+(function(){
+  const btn=document.getElementById('snd');let ctx,timer,on=false;
+  const seq=[330,392,494,392,440,330,294,330];let step=0;
+  btn.addEventListener('click',()=>{
+    on=!on;
+    if(on){
+      ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();
+      btn.textContent='■ stop anthem';
+      timer=setInterval(()=>{
+        const o=ctx.createOscillator(),g=ctx.createGain();o.type='square';
+        o.frequency.value=seq[step%seq.length];step++;
+        g.gain.setValueAtTime(.05,ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.18);
+        o.connect(g).connect(ctx.destination);o.start();o.stop(ctx.currentTime+.2);
+      },200);
+    } else {clearInterval(timer);btn.textContent='♪ play anthem';}
+  });
+})();
+</script>
+<div id="flash"></div>
+<script>
+/* ===== microinteraction 4: stat odometer + €600k glitch ===== */
+(function(){
+  const stats=document.getElementById('stats'); if(!stats) return; let done=false;
+  function animate(b){
+    const to=parseFloat(b.dataset.to), dec=+(b.dataset.dec||0), pre=b.dataset.prefix||'', suf=b.dataset.suffix||'';
+    const dur=1100, t0=performance.now();
+    (function step(t){
+      const k=Math.min(1,(t-t0)/dur), e=1-Math.pow(1-k,3);
+      b.textContent=pre+(dec?(to*e).toFixed(dec):Math.round(to*e))+suf;
+      if(k<1) requestAnimationFrame(step);
+      else{ b.textContent=pre+(dec?to.toFixed(dec):to)+suf;
+        if(b.dataset.glitch){b.classList.add('glitching');setTimeout(()=>b.classList.remove('glitching'),900);} }
+    })(t0);
+  }
+  const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting&&!done){done=true;
+    stats.querySelectorAll('b[data-to]').forEach(animate); io.disconnect();}}),{threshold:.4});
+  io.observe(stats);
+})();
+
+/* ===== microinteraction 6: defrosting CTA — angel flap + click sparkle burst ===== */
+(function(){
+  const portal=document.getElementById('peanut-portal'); if(!portal) return;
+  const angel=document.querySelector('.esc-mascot'), flash=document.getElementById('flash');
+  portal.addEventListener('mouseenter',()=>{ if(angel){angel.classList.remove('flap');void angel.offsetWidth;angel.classList.add('flap');}});
+  portal.addEventListener('click',()=>{
+    if(flash){flash.classList.remove('go');void flash.offsetWidth;flash.classList.add('go');}
+    const cx=innerWidth/2,cy=innerHeight/2,g=["✦","✧","❄","★","💖","🥜"];
+    for(let i=0;i<34;i++){ const s=document.createElement('div');s.className='sparkle';
+      s.textContent=g[i%g.length];s.style.left=cx+'px';s.style.top=cy+'px';
+      s.style.color=['#ff44d4','#00f0ff','#39ff14','#ffd23f'][i%4];document.body.appendChild(s);
+      const a=Math.random()*6.28,d=120+Math.random()*220,t0=performance.now();
+      (function anim(t){const k=Math.min(1,(t-t0)/900);
+        s.style.transform=`translate(${Math.cos(a)*d*k}px,${Math.sin(a)*d*k}px) scale(${1-k})`;
+        s.style.opacity=1-k; if(k<1)requestAnimationFrame(anim); else s.remove();})(t0);
+    }
+  });
+})();
+
+/* ===== FROZEN TAMAGOTCHI v2 — no server, localStorage only, daily ===== */
+(function(){
+  const KEY='apc_pet_v2', FREEZE_MS=180000, DAY=86400000, OFFLINE_CAP=7200;
+  const HAPPY='assets/mila-pet-happy.png', FROZEN_IMG='assets/mila-jail.png';
+  const $=id=>document.getElementById(id);
+  const petEl=$('pet'), sprite=$('pet-sprite'), bubble=$('pet-bubble'), comboEl=$('pet-combo'), toastEl=$('pet-toast');
+  const stage=petEl.querySelector('.stage');
+  let store=true, mem=null;
+  function load(){ try{return JSON.parse(localStorage.getItem(KEY))||null;}catch(e){store=false;return mem;} }
+  function persist(){ try{ if(store)localStorage.setItem(KEY,JSON.stringify(s)); else mem=s; }catch(e){store=false;mem=s;} }
+  const def=()=>({adopted:false,name:'',hunger:65,happy:65,warmth:65,lastTick:Date.now(),frozenUntil:0,
+    streak:0,lastDay:'',born:Date.now(),defrosts:0,shards:0,xp:0,level:1,taps:0,paid:0,up:{tap:0,mine:0,coat:0},ach:{},maxShards:0,evo:0});
+  let s=Object.assign(def(),load()||{}); s.up=Object.assign({tap:0,mine:0,coat:0},s.up||{}); s.ach=s.ach||{};
+
+  let nextFreeze=0, lastAction=0, prevFrozen=false, combo=1, lastTap=0, comboTimer=0;
+  let nextEvent=Date.now()+30000+Math.random()*40000;
+  const clamp=v=>Math.max(0,Math.min(100,v));
+  const frozen=()=>s.frozenUntil>Date.now();
+  const today=()=>new Date().toISOString().slice(0,10);
+  const EVOS=[
+    {name:'Frozen Egg',min:0,img:'assets/mila-egg.png'},
+    {name:'Frostling',min:150,img:'assets/mila-pet-happy.png'},
+    {name:'Ice Cadet',min:600,img:'assets/mila-cadet.png'},
+    {name:'Cyber Maiden',min:2500,img:'assets/mila-maiden.png'},
+    {name:'Cryo Goddess',min:8000,img:'assets/mila-goddess.png'},
+  ];
+  const evoIdx=()=>{ let i=0; const m=s.maxShards||0; for(let k=0;k<EVOS.length;k++) if(m>=EVOS[k].min) i=k; return i; };
+  const evoImg=()=>EVOS[evoIdx()].img;
+  const title=()=>EVOS[evoIdx()].name;
+  function burstStage(){ for(let i=0;i<12;i++){ const e=document.createElement('div');e.className='flo';
+    e.textContent='✦';e.style.color=['#ff44d4','#00f0ff','#39ff14','#ffd23f'][i%4];
+    e.style.left=(20+Math.random()*60)+'%';e.style.top=(25+Math.random()*45)+'%';e.style.fontSize=(14+Math.random()*12)+'px';
+    stage.appendChild(e);setTimeout(()=>e.remove(),1000);} }
+  function checkEvo(){ s.maxShards=Math.max(s.maxShards||0,s.shards); const i=evoIdx();
+    if(i>(s.evo||0)){ s.evo=i; toast('✨ EVOLVED → '+EVOS[i].name); say('I evolved into '+EVOS[i].name+'! ✨'); burstStage(); hop(); } }
+  const xpNeed=()=>30+s.level*30;
+  const tapValue=()=>Math.round((1+s.up.tap)*combo);
+  const mineRate=()=>0.34*(1+s.up.mine*0.85)*(1+(s.level-1)*0.05);
+  const freezeGap=()=>55000+s.up.coat*22000+Math.random()*45000;
+  const LINES=["not your keys, not your coins ☮","i love you (no holds attached) 💖","stay frosty 🧊","gm anon ✨","tap me, anon ✨","wen withdrawal? oh wait — instant here 🥜"];
+  const COST={tap:lv=>Math.floor(25*Math.pow(2,lv)),mine:lv=>Math.floor(30*Math.pow(2,lv)),coat:lv=>Math.floor(60*Math.pow(2,lv))};
+  const MAX={tap:12,mine:12,coat:5};
+
+  function fmt(n){ n=Math.floor(n); return n>=1000?(n/1000).toFixed(n>=10000?0:1)+'k':String(n); }
+  function toast(t){ toastEl.textContent=t; toastEl.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(()=>toastEl.classList.remove('show'),2200); }
+  function say(t){ bubble.textContent=t; }
+  function idle(){ if(s.hunger<25)return"feed me… starving 🥺"; if(s.warmth<25)return"s-so c-cold 🥶"; if(s.happy<25)return"play with me? 🥹"; return LINES[Math.floor(Math.random()*LINES.length)]; }
+  function flo(txt,color){ const e=document.createElement('div');e.className='flo';e.textContent=txt;e.style.color=color||'#ffd23f';
+    e.style.left=(28+Math.random()*54)+'%';e.style.top=(45+Math.random()*14)+'%';e.style.fontSize=(15+Math.random()*8)+'px';
+    stage.appendChild(e);setTimeout(()=>e.remove(),1000); }
+  function heart(e){ const h=document.createElement('div');h.className='heart';h.textContent=e;h.style.left=(30+Math.random()*60)+'%';h.style.top='60%';stage.appendChild(h);setTimeout(()=>h.remove(),1000); }
+  function hop(){ sprite.classList.remove('hop');void sprite.offsetWidth;sprite.classList.add('hop'); }
+
+  const ACH=[
+    {id:'firsttap',t:'🏆 First Shard!',f:()=>s.taps>=1},
+    {id:'s100',t:'🏆 100 ❄ shards',f:()=>s.shards>=100},
+    {id:'s1k',t:'🏆 1,000 ❄ shards',f:()=>s.shards>=1000},
+    {id:'combo',t:'🏆 Combo x5!',f:()=>combo>=5},
+    {id:'shop',t:'🏆 First upgrade',f:()=>(s.up.tap+s.up.mine+s.up.coat)>=1},
+    {id:'lvl5',t:'🏆 Level 5',f:()=>s.level>=5},
+    {id:'defrost',t:'🏆 Peanut defrost',f:()=>s.defrosts>=1},
+    {id:'streak7',t:'🏆 7-day streak',f:()=>s.streak>=7},
+  ];
+  function checkAch(){ ACH.forEach(a=>{ if(!s.ach[a.id]&&a.f()){ s.ach[a.id]=1; toast(a.t); } }); }
+  function addXP(n){ s.xp+=n; while(s.xp>=xpNeed()){ s.xp-=xpNeed(); s.level++; s.shards+=s.level*5;
+    toast('⬆ bond LEVEL '+s.level); s.hunger=clamp(s.hunger+8);s.happy=clamp(s.happy+8);s.warmth=clamp(s.warmth+8); } }
+
+  function tapPet(){ if(!s.adopted) return;
+    if(frozen()){ s.frozenUntil-=1200; flo('❄','#9fe'); hop();
+      if(s.frozenUntil<=Date.now()){ s.frozenUntil=0; nextFreeze=Date.now()+freezeGap(); toast('chipped free! 🧊'); }
+      persist(); render(); return; }
+    const now=Date.now(); combo=(now-lastTap<700)?Math.min(5,combo+0.25):1; lastTap=now; comboTimer=now;
+    const g=tapValue(); s.shards+=g; s.taps++; addXP(1); if(Math.random()<.15)s.happy=clamp(s.happy+1);
+    flo('+'+g); hop(); comboEl.textContent='x'+combo.toFixed(2); comboEl.classList.toggle('on',combo>1);
+    checkAch(); persist(); render(); }
+
+  function action(kind){ if(frozen()||!s.adopted)return; const now=Date.now(); if(now-lastAction<1000)return; lastAction=now;
+    if(kind==='feed'){s.hunger=clamp(s.hunger+24);heart('🍱');say("nom nom 😋");}
+    if(kind==='play'){s.happy=clamp(s.happy+24);heart('💖');say("wheee! 🎮");}
+    if(kind==='warm'){s.warmth=clamp(s.warmth+24);heart('🔥');say("toasty 🔥");}
+    s.shards+=2; addXP(2); flo('+2'); hop(); checkAch(); persist(); render(); }
+
+  function buy(k){ const lv=s.up[k]; if(lv>=MAX[k]){toast('maxed out');return;} const c=COST[k](lv);
+    if(s.shards<c){ toast('need '+fmt(c)+' ❄'); return; } s.shards-=c; s.up[k]++;
+    toast((k==='tap'?'👆 Tap+':k==='mine'?'⛏ Rig+':'🧥 Coat+')+' Lv'+s.up[k]); checkAch(); persist(); render(); }
+
+  function doFreeze(){ s.frozenUntil=Date.now()+FREEZE_MS; nextFreeze=s.frozenUntil+freezeGap();
+    persist(); toast('❄ PayPal froze your pet!'); say("frozen for ‘review’. mining stopped. tap to chip — or Peanut to skip."); render(); }
+  function defrost(){ s.frozenUntil=0;s.defrosts++;nextFreeze=Date.now()+freezeGap();
+    say("✨ defrosted by Peanut — free & instant. that's the point 😉"); checkAch(); persist();
+    window.open('https://peanut.me?utm_source=antipaypal&utm_medium=pet_defrost&utm_campaign=cypherpunk','_blank','noopener'); render(); }
+  function payThaw(){ if(s.shards<50){toast('need 50 ❄');return;} s.shards-=50; s.paid++; s.frozenUntil=0; nextFreeze=Date.now()+freezeGap();
+    toast('paid 50 ❄ to thaw'); say("paid your way out… the PayPal way 💸 (Peanut’s free)"); persist(); render(); }
+
+  function maybeEvent(){ if(!s.adopted||frozen()||Date.now()<nextEvent) return; nextEvent=Date.now()+35000+Math.random()*45000;
+    const r=Math.random();
+    if(r<.34){ const n=8+Math.floor(Math.random()*22); s.shards+=n; flo('+'+n,'#39ff14'); toast('🪙 stray coin +'+n+' ❄'); }
+    else if(r<.6){ const n=Math.min(Math.floor(s.shards),5+Math.floor(Math.random()*15)); s.shards-=n; flo('-'+n,'#ff6b6b'); toast('💸 PayPal fee −'+n+' ❄'); }
+    else if(r<.78){ const n=30+Math.floor(Math.random()*40); s.shards+=n; flo('+'+n,'#00f0ff'); toast('🎁 airdrop! +'+n+' ❄'); }
+    else { doFreeze(); }
+    persist(); render(); }
+
+  function dailyCheck(){ const t=today(); if(s.lastDay===t) return false;
+    const y=new Date(Date.now()-DAY).toISOString().slice(0,10);
+    s.streak=(s.lastDay===y)?s.streak+1:1; s.lastDay=t; const bonus=20+s.streak*10; s.shards+=bonus;
+    s.hunger=clamp(s.hunger+12);s.happy=clamp(s.happy+12);s.warmth=clamp(s.warmth+12);
+    toast('🔥 day '+s.streak+' bonus +'+bonus+' ❄'); return true; }
+
+  function decay(){ const now=Date.now(); let dt=(now-s.lastTick)/1000; s.lastTick=now; if(dt<0)dt=0;
+    const cdt=Math.min(dt,OFFLINE_CAP); let mined=0;
+    if(s.adopted&&!frozen()){ s.hunger=clamp(s.hunger-cdt*0.17); s.happy=clamp(s.happy-cdt*0.13); s.warmth=clamp(s.warmth-cdt*0.15);
+      const wellness=(s.hunger+s.happy+s.warmth)/300; mined=mineRate()*cdt*(0.5+wellness*0.5); s.shards+=mined; }
+    return {dt,mined}; }
+
+  function render(){ const fr=frozen(); if(s.adopted) checkEvo();
+    $('pet-adopt').style.display=s.adopted?'none':'block';
+    $('pet-live').style.display=s.adopted?'block':'none';
+    petEl.classList.toggle('frozen',fr); sprite.classList.toggle('bob',!fr&&s.adopted); sprite.src=fr?FROZEN_IMG:evoImg();
+    $('pet-nm').textContent=s.adopted?('★ '+s.name):''; $('pet-age').textContent=s.adopted?('day '+(Math.floor((Date.now()-s.born)/DAY)+1)):'';
+    if(!s.adopted) return;
+    $('v-shards').textContent=fmt(s.shards); $('v-lvl').textContent=s.level; $('v-title').textContent=title();
+    $('b-xp').style.width=Math.min(100,100*s.xp/xpNeed())+'%';
+    $('b-hunger').style.width=s.hunger+'%'; $('v-hunger').textContent=Math.round(s.hunger)+'%';
+    $('b-happy').style.width=s.happy+'%'; $('v-happy').textContent=Math.round(s.happy)+'%';
+    $('b-warmth').style.width=s.warmth+'%'; $('v-warmth').textContent=Math.round(s.warmth)+'%';
+    ['tap','mine','coat'].forEach(k=>{ const lv=s.up[k], max=lv>=MAX[k];
+      $('lv-'+k).textContent=lv; $('c-'+k).textContent=max?'MAX':fmt(COST[k](lv))+'❄';
+      $('u-'+k).classList.toggle('cant',max||s.shards<COST[k](lv)); });
+    ['feed','play','warm'].forEach(k=>$('a-'+k).disabled=fr);
+    $('a-defrost').style.display=fr?'block':'none'; $('a-paythaw').style.display=fr?'block':'none';
+    { const ei=evoIdx(), nxt=EVOS[ei+1];
+      $('pet-streak').innerHTML='🧬 '+EVOS[ei].name+(nxt?' · next at '+fmt(nxt.min)+'❄':' · MAX FORM')+
+        ' &nbsp;|&nbsp; 🔥'+s.streak+' · ❄'+s.defrosts+' · ⛏'+mineRate().toFixed(1)+'/s'; }
+    if(fr){ const left=Math.ceil((s.frozenUntil-Date.now())/1000); say('❄ FROZEN — thaws in '+left+'s · tap to chip, or DEFROST WITH PEANUT (free)'); }
+  }
+
+  function adopt(){ const nm=(($('pet-name').value||'').trim().slice(0,16))||'Mila';
+    const born=Date.now(); s=def(); s.adopted=true; s.name=nm; s.born=born; s.lastDay=today(); s.streak=1; s.shards=25; s.maxShards=25; s.evo=0;
+    nextFreeze=Date.now()+40000+Math.random()*40000; persist(); say("yay! adopted 💞 tap me to mine ❄"); toast('welcome! +25 ❄ starter'); render(); }
+
+  sprite.addEventListener('click',tapPet);
+  $('a-feed').onclick=()=>action('feed'); $('a-play').onclick=()=>action('play'); $('a-warm').onclick=()=>action('warm');
+  $('u-tap').onclick=()=>buy('tap'); $('u-mine').onclick=()=>buy('mine'); $('u-coat').onclick=()=>buy('coat');
+  $('a-defrost').onclick=defrost; $('a-paythaw').onclick=payThaw; $('a-adopt').onclick=adopt;
+  $('pet-name').addEventListener('keydown',e=>{if(e.key==='Enter')adopt();});
+
+  const boot=decay();
+  if(frozen()) nextFreeze=s.frozenUntil+freezeGap(); else nextFreeze=Date.now()+freezeGap();
+  if(s.adopted){ if(boot.dt>20&&boot.mined>=1){ toast('⛏ while away: +'+fmt(boot.mined)+' ❄'); }
+    const nd=dailyCheck(); persist(); if(!nd) say(idle()); } else say('adopt me? 🥺');
+  prevFrozen=frozen(); checkAch(); render();
+
+  let idleT=0;
+  setInterval(()=>{ decay(); maybeEvent();
+    if(s.adopted&&!frozen()&&Date.now()>=nextFreeze) doFreeze();
+    const f=frozen(); if(prevFrozen&&!f) say('🫠 thawed after the wait — Peanut would’ve been instant & free.'); prevFrozen=f;
+    if(combo>1 && Date.now()-comboTimer>1300){ combo=1; comboEl.classList.remove('on'); }
+    if(s.adopted&&!f){ idleT++; if(idleT%15===0) say(idle()); }
+    checkAch(); persist(); render();
+  },1000);
+})();
+</script>
+</body>
+</html>

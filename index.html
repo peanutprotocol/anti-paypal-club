@@ -508,7 +508,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   const xpNeed=()=>30+s.level*30;
   const tapValue=()=>Math.round((1+s.up.tap)*combo);
   const mineRate=()=>0.34*(1+s.up.mine*0.85)*(1+(s.level-1)*0.05);
-  const freezeGap=()=>55000+s.up.coat*22000+Math.random()*45000;
+  const freezeGap=()=>34000+s.up.coat*20000+Math.random()*30000;
   const LINES=["not your keys, not your coins ☮","i love you (no holds attached) 💖","stay frosty 🧊","gm anon ✨","tap me, anon ✨","wen withdrawal? oh wait — instant here 🥜"];
   const COST={tap:lv=>Math.floor(25*Math.pow(2,lv)),mine:lv=>Math.floor(30*Math.pow(2,lv)),coat:lv=>Math.floor(60*Math.pow(2,lv))};
   const MAX={tap:12,mine:12,coat:5};
@@ -608,7 +608,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 
   function adopt(){ const nm=(($('pet-name').value||'').trim().slice(0,16))||'Mila';
     const born=Date.now(); s=def(); s.adopted=true; s.name=nm; s.born=born; s.lastDay=today(); s.streak=1; s.shards=25; s.maxShards=25; s.evo=0;
-    nextFreeze=Date.now()+40000+Math.random()*40000; persist(); say("yay! adopted 💞 tap me to mine ❄"); toast('welcome! +25 ❄ starter'); render(); }
+    nextFreeze=Date.now()+18000+Math.random()*17000; persist(); say("yay! adopted 💞 tap me to mine ❄"); toast('welcome! +25 ❄ starter'); render(); }
 
   sprite.addEventListener('click',tapPet);
   $('a-feed').onclick=()=>action('feed'); $('a-play').onclick=()=>action('play'); $('a-warm').onclick=()=>action('warm');

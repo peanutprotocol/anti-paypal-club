@@ -151,11 +151,11 @@
   @keyframes flashfade{0%{opacity:.9;}100%{opacity:0;}}
 
   /* === frozen tamagotchi === */
-  .pet{display:grid;grid-template-columns:288px 1fr;gap:18px;}
-  @media(max-width:680px){.pet{grid-template-columns:1fr;}}
-  .pet .stage{position:relative;border:2px solid var(--cyan);min-height:300px;display:flex;align-items:center;justify-content:center;
-    padding:12px;overflow:hidden;background:radial-gradient(circle at 50% 35%,rgba(0,240,255,.12),rgba(0,0,0,.55));}
-  .pet .sprite{width:210px;max-width:82%;height:auto;filter:drop-shadow(0 0 14px rgba(255,68,212,.5));transition:filter .4s;}
+  .pet{display:grid;grid-template-columns:420px 1fr;gap:28px;}
+  @media(max-width:760px){.pet{grid-template-columns:1fr;}}
+  .pet .stage{position:relative;border:2px solid var(--cyan);min-height:420px;display:flex;align-items:center;justify-content:center;
+    padding:14px;overflow:hidden;background:radial-gradient(circle at 50% 35%,rgba(0,240,255,.12),rgba(0,0,0,.55));}
+  .pet .sprite{width:320px;max-width:90%;height:auto;filter:drop-shadow(0 0 14px rgba(255,68,212,.5));transition:filter .4s;}
   .pet .sprite.bob{animation:bob 2.6s ease-in-out infinite;}
   @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
   .pet .sprite.hop{animation:hop .5s ease;}
@@ -175,15 +175,15 @@
   .pet .bubble{position:absolute;bottom:8px;left:8px;right:8px;z-index:6;background:#000;border:1px solid var(--pink);
     color:#ffe9ff;font-size:12px;padding:6px 9px;text-align:center;min-height:1.3em;}
   .pet .ctl{display:flex;flex-direction:column;gap:11px;justify-content:center;}
-  .meter .lab{display:flex;justify-content:space-between;color:#9fe;margin-bottom:3px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
-  .bar2{height:15px;border:1px solid #2a3550;background:#0a0f1c;overflow:hidden;}
+  .meter .lab{display:flex;justify-content:space-between;color:#9fe;margin-bottom:4px;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em;}
+  .bar2{height:18px;border:1px solid #2a3550;background:#0a0f1c;overflow:hidden;}
   .bar2 i{display:block;height:100%;width:50%;transition:width .4s ease;}
   .bar2.hunger i{background:linear-gradient(90deg,#ff7b00,var(--gold));}
   .bar2.happy i{background:linear-gradient(90deg,var(--pink),#ff9de6);}
   .bar2.warmth i{background:linear-gradient(90deg,#00a3ff,var(--cyan));}
   .actions{display:flex;gap:8px;flex-wrap:wrap;}
-  .pbtn{flex:1;min-width:82px;font-family:"Courier New",monospace;font-weight:bold;font-size:13px;cursor:pointer;
-    border:2px solid var(--pink);background:#13091c;color:var(--pink);padding:9px 6px;text-shadow:0 0 5px var(--pink);}
+  .pbtn{flex:1;min-width:90px;font-family:"Courier New",monospace;font-weight:bold;font-size:15px;cursor:pointer;
+    border:2px solid var(--pink);background:#13091c;color:var(--pink);padding:12px 6px;text-shadow:0 0 5px var(--pink);}
   .pbtn:hover{background:#1d0e2b;} .pbtn:disabled{opacity:.35;cursor:not-allowed;}
   .pbtn.defrost{border-color:var(--gold);color:var(--gold);text-shadow:0 0 6px var(--gold);background:#1a1400;font-size:14px;animation:pulse 1.1s ease-in-out infinite;}
   @keyframes pulse{0%,100%{box-shadow:0 0 6px rgba(255,210,63,.5);}50%{box-shadow:0 0 20px rgba(255,210,63,.95);background:#241d00;}}
@@ -197,14 +197,14 @@
   /* === tamagotchi v2: shards / shop / combo === */
   .pet .sprite{cursor:pointer;}
   .pet .sprite:active{transform:scale(.94);}
-  .wallet{display:flex;justify-content:space-between;font-size:13px;color:var(--gold);margin-bottom:6px;text-shadow:0 0 5px rgba(255,210,63,.5);}
+  .wallet{display:flex;justify-content:space-between;font-size:15px;color:var(--gold);margin-bottom:7px;text-shadow:0 0 5px rgba(255,210,63,.5);}
   .wallet b{color:#fff;}
   .bar2.xp{height:8px;} .bar2.xp i{background:linear-gradient(90deg,var(--purple),var(--pink));width:0;}
   .shop{display:flex;gap:7px;margin-top:11px;}
-  .ubtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;font-family:"Courier New",monospace;
-    font-size:12px;font-weight:bold;border:2px solid var(--cyan);background:#04131a;color:var(--cyan);padding:7px 4px;text-shadow:0 0 4px var(--cyan);}
-  .ubtn small{color:#7fd;font-weight:normal;font-size:10px;}
-  .ubtn b{color:var(--gold);font-size:11px;}
+  .ubtn{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;font-family:"Courier New",monospace;
+    font-size:13.5px;font-weight:bold;border:2px solid var(--cyan);background:#04131a;color:var(--cyan);padding:10px 5px;text-shadow:0 0 4px var(--cyan);}
+  .ubtn small{color:#7fd;font-weight:normal;font-size:11px;}
+  .ubtn b{color:var(--gold);font-size:12.5px;}
   .ubtn:hover{background:#072330;} .ubtn.cant{opacity:.45;}
   .combo{position:absolute;top:64px;left:50%;transform:translateX(-50%);z-index:6;font-family:Impact,sans-serif;
     font-size:30px;color:var(--gold);text-shadow:0 0 12px var(--gold);opacity:0;transition:opacity .15s;pointer-events:none;}
@@ -261,16 +261,6 @@
     <div class="stat"><b>1 in 5</b><span>eBay sellers</span></div>
   </div>
 
-  <!-- WALL OF PAIN -->
-  <div class="win">
-    <div class="bar"><span>💀 wall_of_pain.html — 26 fact-checked testimonies</span><span class="dots"><span></span><span></span><span></span></span></div>
-    <div class="in">
-      <p style="margin:0 0 12px;color:var(--cyan);font-size:13px;text-shadow:0 0 5px var(--cyan)">
-        ✦ every quote below was checked against its cited source (Hacker News, Village Voice, Trustpilot, merchant reviews). <b style="color:var(--green)">100% real.</b> sign the guestbook to add yours ↓</p>
-      <div class="wall" id="wall"></div>
-    </div>
-  </div>
-
   <!-- FROZEN TAMAGOTCHI -->
   <div class="win">
     <div class="bar"><span>🥶 frozen_pet.exe — tap to mine ❄shards · saves to your browser · daily</span><span class="dots"><span></span><span></span><span></span></span></div>
@@ -315,6 +305,16 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- WALL OF PAIN -->
+  <div class="win">
+    <div class="bar"><span>💀 wall_of_pain.html — 26 fact-checked testimonies</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="in">
+      <p style="margin:0 0 12px;color:var(--cyan);font-size:13px;text-shadow:0 0 5px var(--cyan)">
+        ✦ every quote below was checked against its cited source (Hacker News, Village Voice, Trustpilot, merchant reviews). <b style="color:var(--green)">100% real.</b> sign the guestbook to add yours ↓</p>
+      <div class="wall" id="wall"></div>
     </div>
   </div>
 

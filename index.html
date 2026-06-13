@@ -213,10 +213,84 @@
     color:var(--gold);font-size:12px;padding:4px 10px;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none;text-shadow:0 0 5px var(--gold);}
   .toast.show{opacity:1;}
   .flo{position:absolute;z-index:7;pointer-events:none;font-weight:bold;animation:floatup 1s ease forwards;}
+  /* === v3: sticky HUD === */
+  #hud{position:fixed;left:14px;bottom:14px;z-index:9500;display:flex;align-items:center;gap:9px;
+    background:rgba(8,10,22,.92);border:2px solid var(--cyan);padding:6px 13px 6px 6px;cursor:pointer;
+    box-shadow:0 0 18px rgba(0,240,255,.4);animation:hudfloat 3.6s ease-in-out infinite;}
+  @keyframes hudfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  #hud img{width:42px;height:42px;object-fit:cover;border:1px solid var(--pink);background:#000;}
+  #hud .hud-info{display:flex;flex-direction:column;line-height:1.2;font-family:"Courier New",monospace;}
+  #hud-shards{color:var(--gold);font-weight:bold;font-size:14px;text-shadow:0 0 5px var(--gold);}
+  #hud-status{color:var(--cyan);font-size:11px;}
+  #hud.fz{border-color:#9fe;box-shadow:0 0 20px rgba(150,220,255,.65);}
+  #hud-bubble{position:absolute;bottom:100%;left:0;margin-bottom:9px;background:#000;border:1px solid var(--pink);
+    color:#ffe9ff;font-family:"Courier New",monospace;font-size:11px;padding:5px 9px;white-space:nowrap;opacity:0;transition:opacity .3s;pointer-events:none;}
+  #hud-bubble.show{opacity:1;}
+  @media(max-width:560px){#hud{left:8px;bottom:8px;padding:5px 10px 5px 5px;}#hud img{width:34px;height:34px;}}
+
+  /* === v3: full-screen freeze === */
+  body.frozenpage::after{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;
+    background:radial-gradient(circle at 50% 38%,transparent 38%,rgba(150,205,235,.20));box-shadow:inset 0 0 180px 55px rgba(150,205,235,.5);}
+  body.frozenpage .tape{color:#ff6b6b !important;border-color:#ff6b6b !important;text-shadow:0 0 6px #ff6b6b;}
+
+  /* === v3: passive panels (miners / stake) === */
+  .wallet .rate{color:var(--green);font-size:12px;text-shadow:0 0 5px var(--green);}
+  .panel{margin-top:13px;}
+  .ph{font-family:"Courier New",monospace;font-size:11px;letter-spacing:.05em;color:var(--cyan);text-transform:uppercase;margin-bottom:6px;text-shadow:0 0 5px var(--cyan);}
+  .mbtn{display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:6px;cursor:pointer;
+    font-family:"Courier New",monospace;font-size:13px;border:2px solid var(--purple);background:#120a1c;color:#eadffb;padding:8px 11px;}
+  .mbtn b{color:#fff;} .mbtn .mc{color:var(--gold);font-size:11px;white-space:nowrap;} .mbtn:hover{background:#1b0f2b;} .mbtn.cant{opacity:.5;}
+  .sbtn{width:100%;cursor:pointer;font-family:"Courier New",monospace;font-weight:bold;font-size:13px;border:2px solid var(--cyan);background:#04131a;color:var(--cyan);padding:9px;text-shadow:0 0 4px var(--cyan);}
+  .sbtn.ready{border-color:var(--gold);color:var(--gold);text-shadow:0 0 5px var(--gold);animation:pulse 1.1s ease-in-out infinite;}
+  .snote{font-family:"Courier New",monospace;font-size:12px;color:#9fe;}
+
+  /* === v3: extra actions (boss / prestige / invite) === */
+  .bossbtn{width:100%;margin-top:13px;cursor:pointer;font-family:"Courier New",monospace;font-weight:bold;font-size:15px;
+    border:2px solid #ff6b6b;background:#1a0808;color:#ff6b6b;padding:12px;text-shadow:0 0 6px #ff6b6b;animation:pulse2 1.2s ease-in-out infinite;}
+  @keyframes pulse2{0%,100%{box-shadow:0 0 6px rgba(255,107,107,.5)}50%{box-shadow:0 0 22px rgba(255,107,107,.95)}}
+  .prebtn{width:100%;margin-top:10px;cursor:pointer;font-family:"Courier New",monospace;font-weight:bold;font-size:14px;
+    border:2px solid var(--purple);background:#12081c;color:#d9b3ff;padding:11px;text-shadow:0 0 6px var(--purple);}
+  .invitecta{display:block;text-align:center;margin-top:13px;text-decoration:none;font-family:Impact,sans-serif;font-size:19px;
+    letter-spacing:.03em;color:#1a1400;background:linear-gradient(90deg,var(--gold),#fff,var(--gold));background-size:200%;
+    padding:14px;border:3px outset var(--gold);animation:slide 3s linear infinite;}
+  .pbtn.share{border-color:var(--cyan);color:var(--cyan);text-shadow:0 0 5px var(--cyan);background:#04131a;}
+
+  /* === v3: boss fight === */
+  .bossfight{position:absolute;inset:0;z-index:8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    background:radial-gradient(circle at 50% 40%,rgba(255,80,80,.18),rgba(0,0,0,.72));padding:12px;}
+  .boss-label{font-family:Impact,sans-serif;font-size:clamp(15px,2.6vw,22px);color:#ff6b6b;text-shadow:0 0 10px #ff6b6b;letter-spacing:1px;text-align:center;}
+  .boss-img{width:60%;max-width:230px;height:auto;cursor:pointer;filter:drop-shadow(0 0 16px rgba(255,80,80,.6));transition:transform .08s;}
+  .boss-img:active{transform:scale(.94);}
+  .boss-hpwrap{width:84%;text-align:center;}
+  .boss-hp{height:16px;border:2px solid #ff6b6b;background:#1a0808;overflow:hidden;}
+  .boss-hp i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#ff3b30,#ff8a3b);transition:width .12s;}
+  .boss-hpwrap span{font-family:"Courier New",monospace;font-size:12px;color:#ffb3b3;}
+  .boss-hint{font-family:"Courier New",monospace;font-size:12px;color:var(--gold);}
+
+  /* === v3: bureaucracy freeze === */
+  #pet-bureau{font-family:"Courier New",monospace;}
+  .bhead{font-family:Impact,sans-serif;font-size:22px;color:#9fe;text-shadow:0 0 10px var(--cyan);letter-spacing:1px;}
+  .breason{font-size:12.5px;color:#ff9d9d;margin:4px 0 12px;}
+  .bsub{font-size:13px;color:#cfe;margin:10px 0 8px;}
+  .bdocs{display:flex;flex-direction:column;gap:6px;}
+  .dbtn{cursor:pointer;font-family:"Courier New",monospace;font-size:13px;border:1px solid var(--cyan);background:#04131a;color:var(--cyan);padding:8px 10px;text-align:left;}
+  .dbtn.ok{border-color:var(--green);color:var(--green);cursor:default;}
+  .bact{width:100%;margin-top:10px;cursor:pointer;font-family:"Courier New",monospace;font-weight:bold;font-size:14px;border:2px solid var(--pink);background:#13091c;color:var(--pink);padding:10px;text-shadow:0 0 5px var(--pink);}
+  .bwait{font-size:15px;color:#9fe;text-align:center;padding:16px;}
+  .bquote{font-style:italic;color:var(--gold);font-size:14px;border-left:3px solid var(--gold);padding:8px 12px;margin:8px 0;background:rgba(255,210,63,.06);}
+  .bpeanut{display:block;text-align:center;margin-top:14px;text-decoration:none;font-family:Impact,sans-serif;font-size:17px;
+    color:#1a1400;background:linear-gradient(90deg,var(--gold),#fff,var(--gold));background-size:200%;padding:12px;border:3px outset var(--gold);animation:slide 3s linear infinite;}
 </style>
 </head>
 <body>
 <canvas id="matrix"></canvas>
+
+<!-- sticky/roaming pet HUD -->
+<div id="hud" style="display:none" title="back to your pet">
+  <img id="hud-pet" src="assets/mila-pet-happy.png" alt="" />
+  <div class="hud-info"><b id="hud-shards">❄0</b><span id="hud-status"></span></div>
+  <div id="hud-bubble"></div>
+</div>
 
 <marquee class="tape" scrollamount="9">⚠ WARNING ⚠ YOUR FUNDS MAY BE FROZEN AT ANY TIME FOR NO REASON · 180 DAY HOLDS · 1 IN 5 EBAY SELLERS GETS LIMITED · NOT YOUR KEYS NOT YOUR COINS · THEY ARE THEIR OWN JUDGE, JURY AND LITIGATOR · ⚠ TRUST NO THIRD PARTY ⚠ &nbsp;&nbsp;&nbsp;</marquee>
 
@@ -262,23 +336,29 @@
   </div>
 
   <!-- FROZEN TAMAGOTCHI -->
-  <div class="win">
-    <div class="bar"><span>🥶 frozen_pet.exe — tap to mine ❄shards · saves to your browser · daily</span><span class="dots"><span></span><span></span><span></span></span></div>
+  <div class="win" id="game-win">
+    <div class="bar"><span>🥶 frozen_pet.exe — tap to mine ❄shards · idle · daily · saves to your browser</span><span class="dots"><span></span><span></span><span></span></span></div>
     <div class="in">
       <div class="pet" id="pet">
         <div class="stage">
           <span class="nm" id="pet-nm"></span>
           <span class="age" id="pet-age"></span>
-          <img class="sprite bob" id="pet-sprite" src="assets/mila-pet-happy.png" alt="your frozen pet" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/mila-pet-happy.png';}" title="tap me!"/>
+          <img class="sprite bob" id="pet-sprite" src="assets/mila-pet-happy.png" alt="your pet" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/mila-pet-happy.png';}" title="tap me!"/>
           <div class="ice"></div>
           <div class="stamp">FROZEN</div>
           <div class="combo" id="pet-combo"></div>
           <div class="toast" id="pet-toast"></div>
           <div class="bubble" id="pet-bubble">...</div>
+          <div class="bossfight" id="bossfight" style="display:none">
+            <div class="boss-label">⚔ THE COMPLIANCE DEPARTMENT</div>
+            <img class="boss-img" id="boss-img" src="assets/boss.jpg" alt="boss" title="ATTACK!"/>
+            <div class="boss-hpwrap"><div class="boss-hp"><i id="boss-hp-bar"></i></div><span id="boss-hp-txt"></span></div>
+            <div class="boss-hint" id="boss-hint">tap the boss to fight! (taps deal damage)</div>
+          </div>
         </div>
         <div class="ctl">
           <div id="pet-live" style="display:none">
-            <div class="wallet"><span>❄ <b id="v-shards">0</b> shards</span><span>Lv <b id="v-lvl">1</b> · <span id="v-title">Frostling</span></span></div>
+            <div class="wallet"><span>❄ <b id="v-shards">0</b></span><span class="rate" id="v-rate"></span><span>Lv <b id="v-lvl">1</b> · <span id="v-title">Frostling</span></span></div>
             <div class="bar2 xp"><i id="b-xp"></i></div>
             <div class="meter" style="margin-top:8px"><div class="lab"><span>🍱 Fed</span><span id="v-hunger">—</span></div><div class="bar2 hunger"><i id="b-hunger"></i></div></div>
             <div class="meter" style="margin-top:7px"><div class="lab"><span>💖 Happy</span><span id="v-happy">—</span></div><div class="bar2 happy"><i id="b-happy"></i></div></div>
@@ -288,20 +368,22 @@
               <button class="pbtn" id="a-play">🎮 Play</button>
               <button class="pbtn" id="a-warm">🔥 Warm</button>
             </div>
+            <div class="panel" id="miners"></div>
+            <div class="panel" id="stake"></div>
             <div class="shop">
               <button class="ubtn" id="u-tap">👆 Tap+ <small>Lv<span id="lv-tap">0</span></small><b id="c-tap">25❄</b></button>
-              <button class="ubtn" id="u-mine">⛏ Rig <small>Lv<span id="lv-mine">0</span></small><b id="c-mine">30❄</b></button>
               <button class="ubtn" id="u-coat">🧥 Coat <small>Lv<span id="lv-coat">0</span></small><b id="c-coat">60❄</b></button>
             </div>
-            <button class="pbtn defrost" id="a-defrost" style="display:none;width:100%;margin-top:10px">❄ DEFROST WITH PEANUT (free)</button>
-            <button class="pbtn" id="a-paythaw" style="display:none;width:100%;margin-top:8px">⏩ pay 50 ❄ to thaw now</button>
+            <div id="extra"></div>
             <div class="streak" id="pet-streak" style="margin-top:9px"></div>
+            <div style="margin-top:8px"><button class="pbtn share" id="a-share" style="width:100%">📤 brag on X</button></div>
           </div>
+          <div id="pet-bureau" style="display:none"></div>
           <div class="adopt" id="pet-adopt" style="display:none">
             <p>a stray frozen chibi appeared on your network. name it &amp; adopt:</p>
             <input id="pet-name" maxlength="16" placeholder="name your pet" />
             <div style="margin-top:12px"><button class="pbtn" id="a-adopt" style="width:60%">★ ADOPT ★</button></div>
-            <p style="font-size:11px;color:#789;margin-top:12px">⚠ tap it to mine ❄shards. PayPal freezes it at random — mining STOPS while frozen. only Peanut defrosts instantly &amp; free.</p>
+            <p style="font-size:11px;color:#789;margin-top:12px">⚠ tap to mine ❄shards, buy miners for passive income, evolve, and beat the Compliance Dept to skip the Peanut waitlist. PayPal freezes you at random — only Peanut defrosts instantly &amp; free.</p>
           </div>
         </div>
       </div>
@@ -471,25 +553,31 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   });
 })();
 
-/* ===== FROZEN TAMAGOTCHI v2 — no server, localStorage only, daily ===== */
+/* ===== FROZEN TAMAGOTCHI v3 — passive growth · bureaucracy freeze · boss · prestige (localStorage) ===== */
 (function(){
-  const KEY='apc_pet_v2', FREEZE_MS=180000, DAY=86400000, OFFLINE_CAP=7200;
-  const HAPPY='assets/mila-pet-happy.png', FROZEN_IMG='assets/mila-jail.png';
+  const KEY='apc_pet_v3', FREEZE_MS=180000, DAY=86400000, OFFLINE_CAP=7200;
+  const FROZEN_IMG='assets/mila-jail.png';
+  const INVITE='https://peanut.me/invite?code=squirrelinvitesyou&utm_source=antipaypal&utm_medium=boss_reward&utm_campaign=cypherpunk';
   const $=id=>document.getElementById(id);
-  const petEl=$('pet'), sprite=$('pet-sprite'), bubble=$('pet-bubble'), comboEl=$('pet-combo'), toastEl=$('pet-toast');
-  const stage=petEl.querySelector('.stage');
+  const petEl=$('pet'), sprite=$('pet-sprite'), bubble=$('pet-bubble'), comboEl=$('pet-combo'), toastEl=$('pet-toast'), stage=petEl.querySelector('.stage');
   let store=true, mem=null;
   function load(){ try{return JSON.parse(localStorage.getItem(KEY))||null;}catch(e){store=false;return mem;} }
   function persist(){ try{ if(store)localStorage.setItem(KEY,JSON.stringify(s)); else mem=s; }catch(e){store=false;mem=s;} }
   const def=()=>({adopted:false,name:'',hunger:65,happy:65,warmth:65,lastTick:Date.now(),frozenUntil:0,
-    streak:0,lastDay:'',born:Date.now(),defrosts:0,shards:0,xp:0,level:1,taps:0,paid:0,up:{tap:0,mine:0,coat:0},ach:{},maxShards:0,evo:0});
-  let s=Object.assign(def(),load()||{}); s.up=Object.assign({tap:0,mine:0,coat:0},s.up||{}); s.ach=s.ach||{};
+    streak:0,lastDay:'',born:Date.now(),defrosts:0,shards:0,xp:0,level:1,taps:0,maxShards:0,evo:0,
+    up:{tap:0,coat:0}, nodes:{node:0,rig:0,farm:0,qnode:0}, staked:0,stakeUntil:0,
+    keys:0,prestiges:0,bossBeaten:false,lore:{},bureau:null,boss:null,ach:{}});
+  let s=Object.assign(def(),load()||{});
+  s.up=Object.assign({tap:0,coat:0},s.up||{}); s.nodes=Object.assign({node:0,rig:0,farm:0,qnode:0},s.nodes||{}); s.ach=s.ach||{}; s.lore=s.lore||{};
+  try{ if(location.hash.startsWith('#s=')){ const j=JSON.parse(atob(decodeURIComponent(location.hash.slice(3))));
+    if(j&&j.adopted){ s=Object.assign(def(),j); s.up=Object.assign({tap:0,coat:0},s.up); s.nodes=Object.assign({node:0,rig:0,farm:0,qnode:0},s.nodes); history.replaceState(null,'',location.pathname);} } }catch(e){}
 
-  let nextFreeze=0, lastAction=0, prevFrozen=false, combo=1, lastTap=0, comboTimer=0;
-  let nextEvent=Date.now()+30000+Math.random()*40000;
+  let lastAction=0, combo=1, lastTap=0, comboTimer=0, nextFreeze=0, nextEvent=Date.now()+30000+Math.random()*40000, bossStun=0;
   const clamp=v=>Math.max(0,Math.min(100,v));
   const frozen=()=>s.frozenUntil>Date.now();
+  const inBoss=()=>!!s.boss;
   const today=()=>new Date().toISOString().slice(0,10);
+
   const EVOS=[
     {name:'Frozen Egg',min:0,img:'assets/mila-egg.png'},
     {name:'Frostling',min:150,img:'assets/mila-pet-happy.png'},
@@ -500,135 +588,227 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   const evoIdx=()=>{ let i=0; const m=s.maxShards||0; for(let k=0;k<EVOS.length;k++) if(m>=EVOS[k].min) i=k; return i; };
   const evoImg=()=>EVOS[evoIdx()].img;
   const title=()=>EVOS[evoIdx()].name;
-  function burstStage(){ for(let i=0;i<12;i++){ const e=document.createElement('div');e.className='flo';
-    e.textContent='✦';e.style.color=['#ff44d4','#00f0ff','#39ff14','#ffd23f'][i%4];
-    e.style.left=(20+Math.random()*60)+'%';e.style.top=(25+Math.random()*45)+'%';e.style.fontSize=(14+Math.random()*12)+'px';
-    stage.appendChild(e);setTimeout(()=>e.remove(),1000);} }
-  function checkEvo(){ s.maxShards=Math.max(s.maxShards||0,s.shards); const i=evoIdx();
-    if(i>(s.evo||0)){ s.evo=i; toast('✨ EVOLVED → '+EVOS[i].name); say('I evolved into '+EVOS[i].name+'! ✨'); burstStage(); hop(); } }
-  const xpNeed=()=>30+s.level*30;
-  const tapValue=()=>Math.round((1+s.up.tap)*combo);
-  const mineRate=()=>0.34*(1+s.up.mine*0.85)*(1+(s.level-1)*0.05);
-  const freezeGap=()=>34000+s.up.coat*20000+Math.random()*30000;
-  const LINES=["not your keys, not your coins ☮","i love you (no holds attached) 💖","stay frosty 🧊","gm anon ✨","tap me, anon ✨","wen withdrawal? oh wait — instant here 🥜"];
-  const COST={tap:lv=>Math.floor(25*Math.pow(2,lv)),mine:lv=>Math.floor(30*Math.pow(2,lv)),coat:lv=>Math.floor(60*Math.pow(2,lv))};
-  const MAX={tap:12,mine:12,coat:5};
 
-  function fmt(n){ n=Math.floor(n); return n>=1000?(n/1000).toFixed(n>=10000?0:1)+'k':String(n); }
+  const NODES=[
+    {id:'node', name:'❄ Cold Node',   base:60,    rate:0.4},
+    {id:'rig',  name:'⛏ Mining Rig',  base:420,   rate:3},
+    {id:'farm', name:'🖥 Server Farm', base:3200,  rate:18},
+    {id:'qnode',name:'⚛ Quantum Node', base:18000, rate:95},
+  ];
+  const nodeCost=n=>Math.floor(n.base*Math.pow(1.15,s.nodes[n.id]||0));
+  const prestigeMult=()=>1+(s.keys||0)*0.25;
+  const evoMult=()=>1+evoIdx()*0.3;
+  const wellness=()=>(s.hunger+s.happy+s.warmth)/300;
+  const passiveRate=()=>NODES.reduce((a,n)=>a+(s.nodes[n.id]||0)*n.rate,0)*prestigeMult()*evoMult()*(0.5+wellness()*0.5);
+  const tapValue=()=>Math.max(1,Math.round((1+s.up.tap)*combo*prestigeMult()*evoMult()));
+  const freezeGap=()=>38000+s.up.coat*22000+evoIdx()*8000+Math.random()*32000;
+  const xpNeed=()=>30+s.level*30;
+  const STAKE_MS=120000;
+  const stakeApr=()=>0.25+(s.keys||0)*0.05;
+  const COST={tap:lv=>Math.floor(25*Math.pow(2,lv)),coat:lv=>Math.floor(60*Math.pow(2,lv))};
+  const MAX={tap:15,coat:6};
+  const canPrestige=()=>s.maxShards>=10000;
+  const prestigeGain=()=>Math.floor(Math.sqrt((s.maxShards||0)/2000));
+
+  const REASONS=['selling suspicious items','growing your business too fast','an unspecified risk signal','a transaction we found confusing','being located on planet Earth','vibes','reasons we cannot disclose'];
+  const EXTRA_DOCS=['a notarized selfie','your last 7 utility bills','a letter of apology','proof you are not a dog','a blood sample'];
+  const LORE=[
+    '📜 Notch had €600,000 frozen by PayPal in 2010. (real)',
+    '📜 PayPal scores ~1.3★ on Trustpilot across ~38,000 reviews.',
+    '📜 PayPal can hold your funds for 180 days — with no appeal.',
+    '📜 “They are their own judge, jury and litigator.” — real reviewer',
+    '📜 Regretsy’s charity funds were frozen by PayPal at Christmas. (real)',
+    '📜 “1 in 5 eBay sellers” gets limited, per a PayPal rep. (real)',
+    '☮ Not your keys, not your coins.',
+    '📜 Inactivity fees: “an attempt to legalize theft.” — real HN comment',
+    '☮ A third party that can freeze you isn’t your money — it’s their money.',
+  ];
+
+  function fmt(n){ n=Math.floor(n); if(n>=1e6)return (n/1e6).toFixed(2)+'M'; return n>=1000?(n/1000).toFixed(n>=10000?0:1)+'k':String(n); }
   function toast(t){ toastEl.textContent=t; toastEl.classList.add('show'); clearTimeout(toast._t); toast._t=setTimeout(()=>toastEl.classList.remove('show'),2200); }
   function say(t){ bubble.textContent=t; }
-  function idle(){ if(s.hunger<25)return"feed me… starving 🥺"; if(s.warmth<25)return"s-so c-cold 🥶"; if(s.happy<25)return"play with me? 🥹"; return LINES[Math.floor(Math.random()*LINES.length)]; }
-  function flo(txt,color){ const e=document.createElement('div');e.className='flo';e.textContent=txt;e.style.color=color||'#ffd23f';
-    e.style.left=(28+Math.random()*54)+'%';e.style.top=(45+Math.random()*14)+'%';e.style.fontSize=(15+Math.random()*8)+'px';
-    stage.appendChild(e);setTimeout(()=>e.remove(),1000); }
-  function heart(e){ const h=document.createElement('div');h.className='heart';h.textContent=e;h.style.left=(30+Math.random()*60)+'%';h.style.top='60%';stage.appendChild(h);setTimeout(()=>h.remove(),1000); }
   function hop(){ sprite.classList.remove('hop');void sprite.offsetWidth;sprite.classList.add('hop'); }
+  function flo(txt,color,el){ const t=el||stage; const e=document.createElement('div');e.className='flo';e.textContent=txt;e.style.color=color||'#ffd23f';
+    e.style.left=(24+Math.random()*54)+'%';e.style.top=(40+Math.random()*16)+'%';e.style.fontSize=(15+Math.random()*9)+'px'; t.appendChild(e);setTimeout(()=>e.remove(),1000); }
+  function heart(e){ const h=document.createElement('div');h.className='heart';h.textContent=e;h.style.left=(30+Math.random()*60)+'%';h.style.top='60%';stage.appendChild(h);setTimeout(()=>h.remove(),1000); }
+  function burstStage(){ for(let i=0;i<14;i++){ const e=document.createElement('div');e.className='flo';
+    e.textContent='✦';e.style.color=['#ff44d4','#00f0ff','#39ff14','#ffd23f'][i%4];
+    e.style.left=(15+Math.random()*70)+'%';e.style.top=(20+Math.random()*50)+'%';e.style.fontSize=(14+Math.random()*14)+'px';
+    stage.appendChild(e);setTimeout(()=>e.remove(),1000);} }
+  const LINES=["not your keys, not your coins ☮","i love you (no holds attached) 💖","stay frosty 🧊","gm anon ✨","tap me, anon ✨","mining while you sleep 💤⛏"];
+  function idle(){ if(s.hunger<25)return"feed me… starving 🥺"; if(s.warmth<25)return"s-so c-cold 🥶"; if(s.happy<25)return"play with me? 🥹"; return LINES[Math.floor(Math.random()*LINES.length)]; }
 
   const ACH=[
     {id:'firsttap',t:'🏆 First Shard!',f:()=>s.taps>=1},
-    {id:'s100',t:'🏆 100 ❄ shards',f:()=>s.shards>=100},
-    {id:'s1k',t:'🏆 1,000 ❄ shards',f:()=>s.shards>=1000},
+    {id:'s1k',t:'🏆 1,000 ❄',f:()=>s.maxShards>=1000},
+    {id:'s50k',t:'🏆 50,000 ❄',f:()=>s.maxShards>=50000},
+    {id:'miner',t:'🏆 First miner',f:()=>NODES.some(n=>s.nodes[n.id]>0)},
     {id:'combo',t:'🏆 Combo x5!',f:()=>combo>=5},
-    {id:'shop',t:'🏆 First upgrade',f:()=>(s.up.tap+s.up.mine+s.up.coat)>=1},
-    {id:'lvl5',t:'🏆 Level 5',f:()=>s.level>=5},
     {id:'defrost',t:'🏆 Peanut defrost',f:()=>s.defrosts>=1},
-    {id:'streak7',t:'🏆 7-day streak',f:()=>s.streak>=7},
+    {id:'boss',t:'🏆 Beat the Compliance Dept!',f:()=>s.bossBeaten},
+    {id:'prestige',t:'🏆 Went full self-custody',f:()=>s.prestiges>=1},
+    {id:'goddess',t:'🏆 Cryo Goddess',f:()=>evoIdx()>=4},
   ];
   function checkAch(){ ACH.forEach(a=>{ if(!s.ach[a.id]&&a.f()){ s.ach[a.id]=1; toast(a.t); } }); }
-  function addXP(n){ s.xp+=n; while(s.xp>=xpNeed()){ s.xp-=xpNeed(); s.level++; s.shards+=s.level*5;
-    toast('⬆ bond LEVEL '+s.level); s.hunger=clamp(s.hunger+8);s.happy=clamp(s.happy+8);s.warmth=clamp(s.warmth+8); } }
+  function checkEvo(){ s.maxShards=Math.max(s.maxShards||0,s.shards); const i=evoIdx();
+    if(i>(s.evo||0)){ s.evo=i; toast('✨ EVOLVED → '+EVOS[i].name); say('I evolved into '+EVOS[i].name+'! ✨'); burstStage(); hop(); } }
+  function addXP(n){ s.xp+=n; while(s.xp>=xpNeed()){ s.xp-=xpNeed(); s.level++; s.shards+=s.level*8;
+    toast('⬆ bond LEVEL '+s.level); s.hunger=clamp(s.hunger+8);s.happy=clamp(s.happy+8);s.warmth=clamp(s.warmth+8);
+    const li=s.level-2; if(li>=0&&li<LORE.length&&!s.lore[li]){ s.lore[li]=1; (function(t){setTimeout(()=>toast(t),1200);})(LORE[li]); } } }
 
-  function tapPet(){ if(!s.adopted) return;
-    if(frozen()){ s.frozenUntil-=1200; flo('❄','#9fe'); hop();
-      if(s.frozenUntil<=Date.now()){ s.frozenUntil=0; nextFreeze=Date.now()+freezeGap(); toast('chipped free! 🧊'); }
-      persist(); render(); return; }
+  function tapPet(){ if(!s.adopted)return; if(inBoss()){bossHit();return;} if(frozen())return;
     const now=Date.now(); combo=(now-lastTap<700)?Math.min(5,combo+0.25):1; lastTap=now; comboTimer=now;
     const g=tapValue(); s.shards+=g; s.taps++; addXP(1); if(Math.random()<.15)s.happy=clamp(s.happy+1);
-    flo('+'+g); hop(); comboEl.textContent='x'+combo.toFixed(2); comboEl.classList.toggle('on',combo>1);
-    checkAch(); persist(); render(); }
-
-  function action(kind){ if(frozen()||!s.adopted)return; const now=Date.now(); if(now-lastAction<1000)return; lastAction=now;
+    flo('+'+g); hop(); comboEl.textContent='x'+combo.toFixed(2); comboEl.classList.toggle('on',combo>1); checkAch(); persist(); render(); }
+  function action(kind){ if(frozen()||inBoss()||!s.adopted)return; const now=Date.now(); if(now-lastAction<900)return; lastAction=now;
     if(kind==='feed'){s.hunger=clamp(s.hunger+24);heart('🍱');say("nom nom 😋");}
     if(kind==='play'){s.happy=clamp(s.happy+24);heart('💖');say("wheee! 🎮");}
     if(kind==='warm'){s.warmth=clamp(s.warmth+24);heart('🔥');say("toasty 🔥");}
-    s.shards+=2; addXP(2); flo('+2'); hop(); checkAch(); persist(); render(); }
+    s.shards+=3; addXP(2); flo('+3'); hop(); checkAch(); persist(); render(); }
+  function buy(k){ const lv=s.up[k]; if(lv>=MAX[k]){toast('maxed');return;} const c=COST[k](lv);
+    if(s.shards<c){toast('need '+fmt(c)+' ❄');return;} s.shards-=c; s.up[k]++; toast((k==='tap'?'👆 Tap+':'🧥 Coat+')+' Lv'+s.up[k]); checkAch(); persist(); render(); }
+  function buyNode(id){ const n=NODES.find(x=>x.id===id), c=nodeCost(n);
+    if(s.shards<c){toast('need '+fmt(c)+' ❄');return;} s.shards-=c; s.nodes[id]=(s.nodes[id]||0)+1; toast(n.name+' ×'+s.nodes[id]); checkAch(); persist(); render(); }
 
-  function buy(k){ const lv=s.up[k]; if(lv>=MAX[k]){toast('maxed out');return;} const c=COST[k](lv);
-    if(s.shards<c){ toast('need '+fmt(c)+' ❄'); return; } s.shards-=c; s.up[k]++;
-    toast((k==='tap'?'👆 Tap+':k==='mine'?'⛏ Rig+':'🧥 Coat+')+' Lv'+s.up[k]); checkAch(); persist(); render(); }
+  function stake(){ if(s.staked>0){toast('already staked');return;} const amt=Math.floor(s.shards*0.5);
+    if(amt<10){toast('need more ❄ to stake');return;} s.shards-=amt; s.staked=amt; s.stakeUntil=Date.now()+STAKE_MS; toast('🔒 staked '+fmt(amt)+' ❄'); persist(); render(); }
+  function claimStake(){ if(s.staked<=0||Date.now()<s.stakeUntil)return; const back=Math.floor(s.staked*(1+stakeApr()));
+    toast('✅ unstaked +'+fmt(back-s.staked)+' ❄ yield'); s.shards+=back; s.staked=0; s.stakeUntil=0; persist(); }
 
-  function doFreeze(){ s.frozenUntil=Date.now()+FREEZE_MS; nextFreeze=s.frozenUntil+freezeGap();
-    persist(); toast('❄ PayPal froze your pet!'); say("frozen for ‘review’. mining stopped. tap to chip — or Peanut to skip."); render(); }
-  function defrost(){ s.frozenUntil=0;s.defrosts++;nextFreeze=Date.now()+freezeGap();
-    say("✨ defrosted by Peanut — free & instant. that's the point 😉"); checkAch(); persist();
-    window.open('https://peanut.me?utm_source=antipaypal&utm_medium=pet_defrost&utm_campaign=cypherpunk','_blank','noopener'); render(); }
-  function payThaw(){ if(s.shards<50){toast('need 50 ❄');return;} s.shards-=50; s.paid++; s.frozenUntil=0; nextFreeze=Date.now()+freezeGap();
-    toast('paid 50 ❄ to thaw'); say("paid your way out… the PayPal way 💸 (Peanut’s free)"); persist(); render(); }
+  function prestige(){ const g=prestigeGain(); if(g<1){toast('reach 10k ❄ first');return;}
+    if(!confirm('Go full self-custody? Resets shards, miners, upgrades, level & evolution — but +'+g+' keys (permanent +'+(g*25)+'% forever).'))return;
+    const keep={name:s.name,born:s.born,streak:s.streak,lastDay:s.lastDay,defrosts:s.defrosts,keys:(s.keys||0)+g,prestiges:(s.prestiges||0)+1,bossBeaten:s.bossBeaten,lore:s.lore,ach:s.ach};
+    s=Object.assign(def(),{adopted:true},keep); s.shards=50; s.maxShards=50; nextFreeze=Date.now()+freezeGap(); toast('🔑 self-custody! +'+g+' keys'); burstStage(); persist(); render(); }
 
-  function maybeEvent(){ if(!s.adopted||frozen()||Date.now()<nextEvent) return; nextEvent=Date.now()+35000+Math.random()*45000;
-    const r=Math.random();
-    if(r<.34){ const n=8+Math.floor(Math.random()*22); s.shards+=n; flo('+'+n,'#39ff14'); toast('🪙 stray coin +'+n+' ❄'); }
-    else if(r<.6){ const n=Math.min(Math.floor(s.shards),5+Math.floor(Math.random()*15)); s.shards-=n; flo('-'+n,'#ff6b6b'); toast('💸 PayPal fee −'+n+' ❄'); }
-    else if(r<.78){ const n=30+Math.floor(Math.random()*40); s.shards+=n; flo('+'+n,'#00f0ff'); toast('🎁 airdrop! +'+n+' ❄'); }
-    else { doFreeze(); }
-    persist(); render(); }
+  function startBoss(){ if(s.bossBeaten||inBoss())return; const max=Math.floor(320*(1+(s.keys||0)*0.5));
+    s.boss={hp:max,max}; bossStun=0; toast('⚔ FIGHT! tap the boss'); persist(); render(); }
+  function bossHit(){ if(!inBoss())return; if(Date.now()<bossStun){flo('HOLD!','#ff6b6b',$('bossfight'));return;}
+    const dmg=tapValue()*4; s.boss.hp-=dmg; flo('-'+dmg,'#ff6b6b',$('bossfight'));
+    if(Math.random()<0.12){ bossStun=Date.now()+1600; toast('🧊 boss placed a HOLD (taps blocked)'); }
+    if(s.boss.hp<=0) winBoss(); else { persist(); renderBoss(); } }
+  function winBoss(){ s.bossBeaten=true; s.boss=null; const rw=Math.floor(800*(1+(s.keys||0)*0.5)); s.shards+=rw; s.maxShards=Math.max(s.maxShards,s.shards);
+    burstStage(); toast('🏆 You beat the Compliance Department! +'+fmt(rw)+' ❄'); say('you’re free of the bureaucracy. claim your Peanut invite ↓'); checkAch(); persist(); render(); }
 
-  function dailyCheck(){ const t=today(); if(s.lastDay===t) return false;
-    const y=new Date(Date.now()-DAY).toISOString().slice(0,10);
-    s.streak=(s.lastDay===y)?s.streak+1:1; s.lastDay=t; const bonus=20+s.streak*10; s.shards+=bonus;
-    s.hunger=clamp(s.hunger+12);s.happy=clamp(s.happy+12);s.warmth=clamp(s.warmth+12);
-    toast('🔥 day '+s.streak+' bonus +'+bonus+' ❄'); return true; }
+  function newBureau(){ return {reason:REASONS[Math.floor(Math.random()*REASONS.length)],
+    phase:'docs', docs:[{n:'Photo ID',ok:false},{n:'Utility bill',ok:false},{n:'Business invoice',ok:false},{n:'Notarized letter',ok:false}],
+    moreCount:0, until:0, phoneStep:0, extra:''}; }
+  function doFreeze(){ if(inBoss())return; s.frozenUntil=Date.now()+FREEZE_MS; s.bureau=newBureau(); nextFreeze=s.frozenUntil+freezeGap();
+    document.body.classList.add('frozenpage'); persist(); toast('❄ PayPal froze your pet!'); render(); }
+  function thaw(msg){ s.frozenUntil=0; s.bureau=null; document.body.classList.remove('frozenpage'); nextFreeze=Date.now()+freezeGap(); if(msg)toast(msg); persist(); render(); }
+  function defrost(){ s.defrosts++; thaw('✨ defrosted by Peanut — instant & free 😉'); say("see? one tap. self-custody doesn’t freeze."); checkAch();
+    window.open('https://peanut.me?utm_source=antipaypal&utm_medium=pet_defrost&utm_campaign=cypherpunk','_blank','noopener'); }
+  function bureauAct(kind,i){ const B=s.bureau; if(!B)return;
+    if(kind==='doc'){ B.docs[i].ok=true; persist(); renderBureau(); return; }
+    if(kind==='submit'){ B.phase='review'; B.until=Date.now()+8000; persist(); renderBureau(); return; }
+    if(kind==='moredoc'){ B.moreCount++; B.phase='review'; B.until=Date.now()+8000; B.extra=''; persist(); renderBureau(); return; }
+    if(kind==='appeal'){ B.phase='appealwait'; B.until=Date.now()+6000; persist(); renderBureau(); return; }
+    if(kind==='phone'){ B.phoneStep++; if(B.phoneStep>=3) B.phase='phonedone'; persist(); renderBureau(); return; }
+    if(kind==='giveup'){ thaw('🫠 finally thawed — that gauntlet was the point. Peanut is one tap.'); return; } }
+  function bureauTick(){ const B=s.bureau; if(!B)return; const now=Date.now();
+    if(B.phase==='review'&&now>=B.until){ if(B.moreCount<2&&Math.random()<0.6){ B.phase='moredocs'; B.extra=EXTRA_DOCS[Math.floor(Math.random()*EXTRA_DOCS.length)]; } else B.phase='appeal'; persist(); }
+    else if(B.phase==='appealwait'&&now>=B.until){ B.phase='denied'; persist(); } }
 
-  function decay(){ const now=Date.now(); let dt=(now-s.lastTick)/1000; s.lastTick=now; if(dt<0)dt=0;
-    const cdt=Math.min(dt,OFFLINE_CAP); let mined=0;
-    if(s.adopted&&!frozen()){ s.hunger=clamp(s.hunger-cdt*0.17); s.happy=clamp(s.happy-cdt*0.13); s.warmth=clamp(s.warmth-cdt*0.15);
-      const wellness=(s.hunger+s.happy+s.warmth)/300; mined=mineRate()*cdt*(0.5+wellness*0.5); s.shards+=mined; }
+  function dailyCheck(){ const t=today(); if(s.lastDay===t)return false; const y=new Date(Date.now()-DAY).toISOString().slice(0,10);
+    s.streak=(s.lastDay===y)?s.streak+1:1; s.lastDay=t; const bonus=25+s.streak*15; s.shards+=bonus;
+    s.hunger=clamp(s.hunger+12);s.happy=clamp(s.happy+12);s.warmth=clamp(s.warmth+12); toast('🔥 day '+s.streak+' +'+fmt(bonus)+' ❄'); return true; }
+  function decay(){ const now=Date.now(); let dt=(now-s.lastTick)/1000; s.lastTick=now; if(dt<0)dt=0; const cdt=Math.min(dt,OFFLINE_CAP); let mined=0;
+    if(s.adopted&&!frozen()&&!inBoss()){ s.hunger=clamp(s.hunger-cdt*0.16); s.happy=clamp(s.happy-cdt*0.12); s.warmth=clamp(s.warmth-cdt*0.14); mined=passiveRate()*cdt; s.shards+=mined; }
     return {dt,mined}; }
 
-  function render(){ const fr=frozen(); if(s.adopted) checkEvo();
+  function renderMiners(){ let h='<div class="ph">⛏ MINERS — passive ❄/s</div>'; NODES.forEach(n=>{ const c=nodeCost(n),cnt=s.nodes[n.id]||0,cant=s.shards<c;
+    h+='<button class="mbtn'+(cant?' cant':'')+'" data-node="'+n.id+'"><span>'+n.name+' <b>×'+cnt+'</b></span><span class="mc">'+fmt(c)+'❄ · +'+n.rate+'/s</span></button>'; });
+    $('miners').innerHTML=h; }
+  function renderStake(){ let h=''; if(s.staked>0){ const left=Math.max(0,Math.ceil((s.stakeUntil-Date.now())/1000));
+      h='<div class="ph">🔒 STAKED '+fmt(s.staked)+' ❄</div>'+(left>0?'<div class="snote">maturing… '+left+'s</div>':'<button class="sbtn ready" id="b-claim">✅ CLAIM +'+fmt(Math.floor(s.staked*stakeApr()))+' ❄</button>'); }
+    else h='<div class="ph">🔒 STAKE (2min, +'+Math.round(stakeApr()*100)+'% — unlike a 180-day hold)</div><button class="sbtn" id="b-stake">stake 50% ('+fmt(Math.floor(s.shards*0.5))+' ❄)</button>';
+    $('stake').innerHTML=h; const cl=$('b-claim'); if(cl)cl.onclick=claimStake; const st=$('b-stake'); if(st)st.onclick=stake; }
+  function renderExtra(){ let h='';
+    if(s.bossBeaten) h+='<a class="invitecta" href="'+INVITE+'" target="_blank" rel="noopener">🎟 SKIP THE PEANUT WAITLIST →</a>';
+    else if(evoIdx()>=2) h+='<button class="bossbtn" id="b-boss">⚔ FIGHT THE COMPLIANCE DEPT</button>';
+    if(canPrestige()) h+='<button class="prebtn" id="b-pre">🔑 GO FULL SELF-CUSTODY (+'+prestigeGain()+' keys)</button>';
+    $('extra').innerHTML=h; const bb=$('b-boss'); if(bb)bb.onclick=startBoss; const pb=$('b-pre'); if(pb)pb.onclick=prestige; }
+  function renderBoss(){ if(!inBoss())return; const pct=Math.max(0,100*s.boss.hp/s.boss.max);
+    $('boss-hp-bar').style.width=pct+'%'; $('boss-hp-txt').textContent=fmt(Math.max(0,s.boss.hp))+' / '+fmt(s.boss.max);
+    $('boss-hint').textContent=Date.now()<bossStun?'🧊 HOLD PLACED — taps blocked!':'tap the boss! (×4 tap damage)'; }
+  function renderBureau(){ const B=s.bureau; if(!B){ $('pet-bureau').style.display='none'; return; } $('pet-bureau').style.display='block';
+    let h='<div class="bhead">❄ ACCOUNT FROZEN</div><div class="breason">Reason: '+B.reason+'</div>';
+    if(B.phase==='docs'){ h+='<div class="bsub">PayPal requires documents:</div><div class="bdocs">';
+      B.docs.forEach((d,i)=>h+='<button class="dbtn'+(d.ok?' ok':'')+'" data-doc="'+i+'">'+(d.ok?'✓ ':'📎 ')+d.n+'</button>');
+      h+='</div>'; if(B.docs.every(d=>d.ok)) h+='<button class="bact" data-act="submit">Submit to PayPal →</button>'; }
+    else if(B.phase==='review'){ const left=Math.max(0,Math.ceil((B.until-Date.now())/1000)); h+='<div class="bwait">⏳ Under review… '+left+'s</div>'; }
+    else if(B.phase==='moredocs'){ h+='<div class="bsub">❌ We require ONE more document:</div><div class="bdocs"><button class="dbtn" data-act="moredoc">📎 '+B.extra+'</button></div>'; }
+    else if(B.phase==='appeal'){ h+='<div class="bsub">Your account remains limited.</div><button class="bact" data-act="appeal">File an appeal</button>'; }
+    else if(B.phase==='appealwait'){ const left=Math.max(0,Math.ceil((B.until-Date.now())/1000)); h+='<div class="bwait">⏳ Reviewing appeal… '+left+'s</div>'; }
+    else if(B.phase==='denied'){ h+='<div class="bquote">“This is our final decision and will not be appealed.”</div><button class="bact" data-act="phone">☎ Call support</button>'; }
+    else if(B.phase==='phone'){ const m=['Press 1 — holds & limitations','Press 2 — billing','Press 3 — speak to an agent']; h+='<div class="bsub">'+(B.phoneStep===0?'☎ Welcome to PayPal support.':'…transferring you…')+'</div><button class="bact" data-act="phone">'+m[B.phoneStep%3]+'</button>'; }
+    else if(B.phase==='phonedone'){ h+='<div class="bsub">🏢 You’ve reached the Frozen Funds Department.</div><div class="breason">They are closed. Please hold for 180 years.</div><button class="bact" data-act="giveup">give up & wait it out 🫠</button>'; }
+    h+='<a class="bpeanut" id="b-defrost">❄ DEFROST WITH PEANUT — instant & free</a>';
+    $('pet-bureau').innerHTML=h;
+    $('pet-bureau').querySelectorAll('[data-doc]').forEach(b=>b.onclick=()=>bureauAct('doc',+b.dataset.doc));
+    $('pet-bureau').querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>bureauAct(b.dataset.act));
+    const df=$('b-defrost'); if(df)df.onclick=defrost; }
+
+  function render(){ const fr=frozen(), bz=inBoss(); if(s.adopted&&!bz) checkEvo();
     $('pet-adopt').style.display=s.adopted?'none':'block';
-    $('pet-live').style.display=s.adopted?'block':'none';
-    petEl.classList.toggle('frozen',fr); sprite.classList.toggle('bob',!fr&&s.adopted); sprite.src=fr?FROZEN_IMG:evoImg();
-    $('pet-nm').textContent=s.adopted?('★ '+s.name):''; $('pet-age').textContent=s.adopted?('day '+(Math.floor((Date.now()-s.born)/DAY)+1)):'';
+    $('pet-live').style.display=(s.adopted&&!fr&&!bz)?'block':'none';
+    $('pet-bureau').style.display=(s.adopted&&fr&&!bz)?'block':'none';
+    $('bossfight').style.display=bz?'flex':'none';
+    petEl.classList.toggle('frozen',fr); petEl.classList.toggle('boss',bz);
+    sprite.style.display=bz?'none':''; sprite.classList.toggle('bob',!fr&&s.adopted&&!bz); sprite.src=fr?FROZEN_IMG:evoImg();
+    $('pet-nm').textContent=s.adopted?('★ '+s.name+(s.keys?(' · 🔑'+s.keys):'')):''; $('pet-age').textContent=s.adopted?('day '+(Math.floor((Date.now()-s.born)/DAY)+1)):'';
+    if(s.adopted){ $('hud').style.display='flex'; $('hud-pet').src=fr?FROZEN_IMG:evoImg(); $('hud-shards').textContent='❄'+fmt(s.shards);
+      $('hud-status').textContent=fr?'FROZEN ❄':(bz?'⚔ BOSS':('+'+passiveRate().toFixed(1)+'/s')); $('hud').classList.toggle('fz',fr); }
+    if(bz){ renderBoss(); return; }
+    if(fr){ renderBureau(); return; }
     if(!s.adopted) return;
-    $('v-shards').textContent=fmt(s.shards); $('v-lvl').textContent=s.level; $('v-title').textContent=title();
-    $('b-xp').style.width=Math.min(100,100*s.xp/xpNeed())+'%';
+    $('v-shards').textContent=fmt(s.shards); $('v-rate').textContent='+'+passiveRate().toFixed(1)+'/s';
+    $('v-lvl').textContent=s.level; $('v-title').textContent=title(); $('b-xp').style.width=Math.min(100,100*s.xp/xpNeed())+'%';
     $('b-hunger').style.width=s.hunger+'%'; $('v-hunger').textContent=Math.round(s.hunger)+'%';
     $('b-happy').style.width=s.happy+'%'; $('v-happy').textContent=Math.round(s.happy)+'%';
     $('b-warmth').style.width=s.warmth+'%'; $('v-warmth').textContent=Math.round(s.warmth)+'%';
-    ['tap','mine','coat'].forEach(k=>{ const lv=s.up[k], max=lv>=MAX[k];
-      $('lv-'+k).textContent=lv; $('c-'+k).textContent=max?'MAX':fmt(COST[k](lv))+'❄';
-      $('u-'+k).classList.toggle('cant',max||s.shards<COST[k](lv)); });
-    ['feed','play','warm'].forEach(k=>$('a-'+k).disabled=fr);
-    $('a-defrost').style.display=fr?'block':'none'; $('a-paythaw').style.display=fr?'block':'none';
-    { const ei=evoIdx(), nxt=EVOS[ei+1];
-      $('pet-streak').innerHTML='🧬 '+EVOS[ei].name+(nxt?' · next at '+fmt(nxt.min)+'❄':' · MAX FORM')+
-        ' &nbsp;|&nbsp; 🔥'+s.streak+' · ❄'+s.defrosts+' · ⛏'+mineRate().toFixed(1)+'/s'; }
-    if(fr){ const left=Math.ceil((s.frozenUntil-Date.now())/1000); say('❄ FROZEN — thaws in '+left+'s · tap to chip, or DEFROST WITH PEANUT (free)'); }
-  }
+    ['tap','coat'].forEach(k=>{ const lv=s.up[k],max=lv>=MAX[k]; $('lv-'+k).textContent=lv; $('c-'+k).textContent=max?'MAX':fmt(COST[k](lv))+'❄'; $('u-'+k).classList.toggle('cant',max||s.shards<COST[k](lv)); });
+    renderMiners(); renderStake(); renderExtra();
+    const ei=evoIdx(), nxt=EVOS[ei+1];
+    $('pet-streak').innerHTML='🧬 '+EVOS[ei].name+(nxt?' · next '+fmt(nxt.min)+'❄':' · MAX')+' &nbsp;|&nbsp; 🔥'+s.streak+' · ❄def '+s.defrosts+' · 🔑'+(s.keys||0)+(s.bossBeaten?' · 🏆':''); }
 
-  function adopt(){ const nm=(($('pet-name').value||'').trim().slice(0,16))||'Mila';
-    const born=Date.now(); s=def(); s.adopted=true; s.name=nm; s.born=born; s.lastDay=today(); s.streak=1; s.shards=25; s.maxShards=25; s.evo=0;
-    nextFreeze=Date.now()+18000+Math.random()*17000; persist(); say("yay! adopted 💞 tap me to mine ❄"); toast('welcome! +25 ❄ starter'); render(); }
+  function adopt(){ const nm=(($('pet-name').value||'').trim().slice(0,16))||'Mila'; const born=Date.now();
+    s=Object.assign(def(),{adopted:true,name:nm,born,lastDay:today(),streak:1,shards:25,maxShards:25});
+    nextFreeze=Date.now()+20000+Math.random()*18000; persist(); say("yay! adopted 💞 tap me to mine ❄"); toast('welcome! +25 ❄'); render(); }
+  function shareX(){ const txt='my frozen lil cypherpunk pet mined '+fmt(s.maxShards)+' ❄, survived '+s.defrosts+' PayPal freezes'+(s.bossBeaten?' & beat the Compliance Dept 🏆':'')+'. adopt one (& learn why PayPal sucks):';
+    window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt)+'&url='+encodeURIComponent('https://antipaypal.club'),'_blank','noopener'); }
 
-  sprite.addEventListener('click',tapPet);
+  sprite.addEventListener('click',tapPet); $('boss-img').addEventListener('click',bossHit);
   $('a-feed').onclick=()=>action('feed'); $('a-play').onclick=()=>action('play'); $('a-warm').onclick=()=>action('warm');
-  $('u-tap').onclick=()=>buy('tap'); $('u-mine').onclick=()=>buy('mine'); $('u-coat').onclick=()=>buy('coat');
-  $('a-defrost').onclick=defrost; $('a-paythaw').onclick=payThaw; $('a-adopt').onclick=adopt;
+  $('u-tap').onclick=()=>buy('tap'); $('u-coat').onclick=()=>buy('coat'); $('a-adopt').onclick=adopt; $('a-share').onclick=shareX;
   $('pet-name').addEventListener('keydown',e=>{if(e.key==='Enter')adopt();});
+  $('miners').addEventListener('click',e=>{const b=e.target.closest('[data-node]'); if(b)buyNode(b.dataset.node);});
+  $('hud').onclick=()=>document.getElementById('game-win').scrollIntoView({behavior:'smooth',block:'center'});
+
+  const REACTS=['that happened to me too 😭','see? i told you 🧊','frozen funds gang ✊','this is why i self-custody ☮','brrr 🥶'];
+  setTimeout(()=>{ const cards=document.querySelectorAll('.cmt'); if(!cards.length)return; let last=0;
+    const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting&&s.adopted&&Date.now()-last>4000){ last=Date.now();
+      const hb=$('hud-bubble'); if(hb){ hb.textContent=REACTS[Math.floor(Math.random()*REACTS.length)]; hb.classList.add('show'); clearTimeout(hb._t); hb._t=setTimeout(()=>hb.classList.remove('show'),2600);} } }),{threshold:.6});
+    cards.forEach(c=>io.observe(c)); },1500);
 
   const boot=decay();
-  if(frozen()) nextFreeze=s.frozenUntil+freezeGap(); else nextFreeze=Date.now()+freezeGap();
-  if(s.adopted){ if(boot.dt>20&&boot.mined>=1){ toast('⛏ while away: +'+fmt(boot.mined)+' ❄'); }
-    const nd=dailyCheck(); persist(); if(!nd) say(idle()); } else say('adopt me? 🥺');
-  prevFrozen=frozen(); checkAch(); render();
+  if(frozen()){ document.body.classList.add('frozenpage'); nextFreeze=s.frozenUntil+freezeGap(); if(!s.bureau)s.bureau=newBureau(); }
+  else nextFreeze=Date.now()+freezeGap();
+  if(s.adopted){ if(boot.dt>20&&boot.mined>=1) toast('⛏ while away: +'+fmt(boot.mined)+' ❄'); const nd=dailyCheck(); persist(); if(!nd&&!frozen()&&!inBoss()) say(idle()); } else say('adopt me? 🥺');
+  checkAch(); render();
 
   let idleT=0;
-  setInterval(()=>{ decay(); maybeEvent();
-    if(s.adopted&&!frozen()&&Date.now()>=nextFreeze) doFreeze();
-    const f=frozen(); if(prevFrozen&&!f) say('🫠 thawed after the wait — Peanut would’ve been instant & free.'); prevFrozen=f;
-    if(combo>1 && Date.now()-comboTimer>1300){ combo=1; comboEl.classList.remove('on'); }
-    if(s.adopted&&!f){ idleT++; if(idleT%15===0) say(idle()); }
+  setInterval(()=>{ decay();
+    if(inBoss()){ renderBoss(); persist(); return; }
+    if(!frozen()&&s.bureau) thaw('🫠 the hold expired — Peanut would’ve been instant.');
+    if(frozen()){ bureauTick(); render(); persist(); return; }
+    claimStake();
+    if(s.adopted&&Date.now()>=nextFreeze) doFreeze();
+    else if(s.adopted&&Date.now()>=nextEvent){ nextEvent=Date.now()+35000+Math.random()*45000; const r=Math.random();
+      if(r<.4){ const n=10+Math.floor(Math.random()*Math.max(20,passiveRate()*8)); s.shards+=n; flo('+'+fmt(n),'#39ff14'); toast('🪙 stray coin +'+fmt(n)+' ❄'); }
+      else if(r<.62){ const n=Math.min(Math.floor(s.shards),5+Math.floor(Math.random()*20)); s.shards-=n; flo('-'+fmt(n),'#ff6b6b'); toast('💸 PayPal fee −'+fmt(n)+' ❄'); }
+      else if(r<.8){ const n=Math.floor(50+Math.random()*Math.max(60,passiveRate()*20)); s.shards+=n; flo('+'+fmt(n),'#00f0ff'); toast('🎁 airdrop +'+fmt(n)+' ❄'); } }
+    if(combo>1&&Date.now()-comboTimer>1300){ combo=1; comboEl.classList.remove('on'); }
+    if(s.adopted&&!frozen()&&!inBoss()){ idleT++; if(idleT%16===0) say(idle()); }
     checkAch(); persist(); render();
   },1000);
 })();

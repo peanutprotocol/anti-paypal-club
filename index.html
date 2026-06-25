@@ -280,6 +280,53 @@
   .bquote{font-style:italic;color:var(--gold);font-size:14px;border-left:3px solid var(--gold);padding:8px 12px;margin:8px 0;background:rgba(255,210,63,.06);}
   .bpeanut{display:block;text-align:center;margin-top:14px;text-decoration:none;font-family:Impact,sans-serif;font-size:17px;
     color:#1a1400;background:linear-gradient(90deg,var(--gold),#fff,var(--gold));background-size:200%;padding:12px;border:3px outset var(--gold);animation:slide 3s linear infinite;}
+
+  /* === hero: the game is front & center === */
+  .gameintro{text-align:center;margin:6px 0 2px;}
+  .ginv{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(22px,4.6vw,40px);line-height:1.04;margin:6px 0 8px;
+    color:#fff;text-shadow:0 0 14px var(--cyan),0 0 30px rgba(255,68,212,.5);letter-spacing:.5px;}
+  .gsub{color:#bfe9ff;font-size:14px;max-width:640px;margin:0 auto;line-height:1.55;}
+  .gsub b{color:#fff;}
+  #game-win{margin-top:12px;box-shadow:0 0 40px rgba(35,255,217,.4),inset 0 0 30px rgba(177,77,255,.10);}
+  /* a small "play now ↓" nudge under the title is purely decorative */
+
+  /* === big adopt / naming CTA (the main invitation) === */
+  .adopt-hero{max-width:540px;margin:0 auto;padding:6px 4px 4px;}
+  .adopt-hero .egg{width:120px;height:auto;display:block;margin:0 auto 6px;filter:drop-shadow(0 0 14px var(--cyan));animation:bob 2.6s ease-in-out infinite;}
+  .adopt-hero h3{font-family:Impact,sans-serif;font-size:clamp(24px,5.4vw,40px);margin:4px 0 6px;color:#fff;
+    text-shadow:0 0 14px var(--pink),0 0 28px var(--gold);letter-spacing:1px;}
+  .adopt-hero p{color:#cff;font-size:13.5px;margin:6px auto 12px;max-width:440px;line-height:1.5;}
+  .adopt-hero p.fine{font-size:11px;color:#89a;margin-top:14px;}
+  .adopt-row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;align-items:stretch;max-width:480px;margin:0 auto;}
+  .adopt-hero input{flex:1;min-width:200px;background:#000;border:2px solid var(--cyan);color:#cff;
+    font-family:"Courier New",monospace;padding:14px 12px;font-size:17px;text-shadow:0 0 5px var(--cyan);}
+  .adopt-hero input:focus{outline:none;border-color:var(--pink);box-shadow:0 0 14px rgba(255,68,212,.6);}
+  .pbtn.big{flex:0 0 auto;min-width:170px;font-size:18px;padding:14px 18px;border-color:var(--gold);color:#1a1400;
+    background:linear-gradient(90deg,var(--gold),#fff,var(--gold));background-size:200%;text-shadow:none;
+    animation:slide 3s linear infinite,pulse 1.3s ease-in-out infinite;font-family:Impact,sans-serif;letter-spacing:1px;}
+  .pbtn.big:hover{filter:brightness(1.08);}
+
+  /* === boss = the defrost moment === */
+  .boss-sub{font-family:"Courier New",monospace;font-size:11.5px;color:#ffb3b3;text-align:center;max-width:320px;line-height:1.4;}
+  .boss-peanut{display:inline-block;margin-top:2px;font-family:"Courier New",monospace;font-size:11px;text-decoration:none;
+    color:var(--gold);border-bottom:1px dotted var(--gold);text-shadow:0 0 5px rgba(255,210,63,.5);}
+  .boss-peanut:hover{color:#fff;}
+
+  /* === compact "use Peanut instead" card (small CTA + value props) === */
+  .usepeanut .in{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;}
+  @media(max-width:600px){.usepeanut .in{grid-template-columns:1fr;text-align:center;}}
+  .usepeanut h3{font-family:Impact,sans-serif;font-size:clamp(18px,3.4vw,26px);margin:0 0 8px;color:#fff;text-shadow:0 0 12px var(--gold);}
+  .vprops{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px;}
+  .vprops li{font-size:13px;color:#eaf0ff;}
+  .vprops b{color:var(--green);text-shadow:0 0 5px var(--green);}
+  .upcta{display:inline-block;text-decoration:none;font-family:Impact,sans-serif;font-size:18px;letter-spacing:.5px;white-space:nowrap;
+    color:#1a1400;background:linear-gradient(90deg,var(--gold),#fff,var(--gold));background-size:200%;
+    padding:13px 22px;border:3px outset var(--gold);animation:slide 3s linear infinite;}
+  .upcta:hover{filter:brightness(1.08);}
+  .upcta small{display:block;font-family:"Courier New",monospace;font-size:10px;letter-spacing:0;color:#3a2e00;margin-top:2px;}
+  .invitecta{display:block;text-align:center;margin-top:13px;text-decoration:none;font-family:Impact,sans-serif;font-size:16px;
+    letter-spacing:.03em;color:#1a1400;background:linear-gradient(90deg,var(--gold),#fff,var(--gold));background-size:200%;
+    padding:12px;border:3px outset var(--gold);animation:slide 3s linear infinite;}
 </style>
 </head>
 <body>
@@ -306,9 +353,77 @@
     </div>
   </div>
 
-  <!-- HERO NOTICE -->
+  <!-- ★ HERO: THE GAME IS FRONT & CENTER ★ -->
+  <div class="gameintro">
+    <h2 class="ginv">ADOPT A FROZEN PET — NAME IT — KEEP PAYPAL OFF ITS BACK</h2>
+    <p class="gsub">a lil cypherpunk creature, frozen by PayPal for <span class="blink">[REDACTED]</span>. tap to mine ❄, feed it, watch it grow — and when the <b style="color:#ff6b6b">Compliance Department</b> shows up to freeze it, <b>fight them off to defrost</b>. ↓</p>
+  </div>
+
+  <!-- FROZEN TAMAGOTCHI (HERO) -->
+  <div class="win" id="game-win">
+    <div class="bar"><span>🥶 frozen_pet.exe — tap to mine ❄shards · idle · daily · saves to your browser</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="in">
+      <div class="pet" id="pet">
+        <div class="stage">
+          <span class="nm" id="pet-nm"></span>
+          <span class="age" id="pet-age"></span>
+          <img class="sprite bob" id="pet-sprite" src="assets/mila-pet-happy.png" alt="your pet" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/mila-pet-happy.png';}" title="tap me!"/>
+          <div class="ice"></div>
+          <div class="stamp">FROZEN</div>
+          <div class="combo" id="pet-combo"></div>
+          <div class="toast" id="pet-toast"></div>
+          <div class="bubble" id="pet-bubble">...</div>
+          <div class="bossfight" id="bossfight" style="display:none">
+            <div class="boss-label">❄ FROZEN — ⚔ THE COMPLIANCE DEPARTMENT</div>
+            <div class="boss-sub">PayPal placed a hold on your pet. <b>tap the boss to fight your way out</b> — that's the only way to defrost.</div>
+            <img class="boss-img" id="boss-img" src="assets/boss.jpg" alt="boss" title="ATTACK!"/>
+            <div class="boss-hpwrap"><div class="boss-hp"><i id="boss-hp-bar"></i></div><span id="boss-hp-txt"></span></div>
+            <div class="boss-hint" id="boss-hint">tap the boss! (taps deal damage)</div>
+            <a class="boss-peanut" href="https://peanut.me/invite?code=squirrelinvitesyou&utm_source=antipaypal&utm_medium=boss_screen&utm_campaign=cypherpunk" target="_blank" rel="noopener">tired of this? use Peanut instead — it never freezes you →</a>
+          </div>
+        </div>
+        <div class="ctl">
+          <div id="pet-live" style="display:none">
+            <div class="wallet"><span>❄ <b id="v-shards">0</b></span><span class="rate" id="v-rate"></span><span>Lv <b id="v-lvl">1</b> · <span id="v-title">Frostling</span></span></div>
+            <div class="bar2 xp"><i id="b-xp"></i></div>
+            <div class="meter" style="margin-top:8px"><div class="lab"><span>🍱 Fed</span><span id="v-hunger">—</span></div><div class="bar2 hunger"><i id="b-hunger"></i></div></div>
+            <div class="meter" style="margin-top:7px"><div class="lab"><span>💖 Happy</span><span id="v-happy">—</span></div><div class="bar2 happy"><i id="b-happy"></i></div></div>
+            <div class="meter" style="margin-top:7px"><div class="lab"><span>🔥 Warm</span><span id="v-warmth">—</span></div><div class="bar2 warmth"><i id="b-warmth"></i></div></div>
+            <div class="actions" style="margin-top:11px">
+              <button class="pbtn" id="a-feed">🍱 Feed</button>
+              <button class="pbtn" id="a-play">🎮 Play</button>
+              <button class="pbtn" id="a-warm">🔥 Warm</button>
+            </div>
+            <div class="panel" id="miners"></div>
+            <div class="panel" id="stake"></div>
+            <div class="shop">
+              <button class="ubtn" id="u-tap">👆 Tap+ <small>Lv<span id="lv-tap">0</span></small><b id="c-tap">25❄</b></button>
+              <button class="ubtn" id="u-coat">🧥 Coat <small>Lv<span id="lv-coat">0</span></small><b id="c-coat">60❄</b></button>
+            </div>
+            <div id="extra"></div>
+            <div class="streak" id="pet-streak" style="margin-top:9px"></div>
+            <div style="margin-top:8px"><button class="pbtn share" id="a-share" style="width:100%">📤 brag on X</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="adopt" id="pet-adopt" style="display:none">
+        <div class="adopt-hero">
+          <img class="egg" src="assets/mila-egg.png" alt="" onerror="this.style.display='none'"/>
+          <h3>★ NAME YOUR FROZEN PET ★</h3>
+          <p>a stray frozen chibi appeared on your network. give it a name to adopt it &amp; start playing:</p>
+          <div class="adopt-row">
+            <input id="pet-name" maxlength="16" placeholder="name your pet…" />
+            <button class="pbtn big" id="a-adopt">★ ADOPT &amp; PLAY ★</button>
+          </div>
+          <p class="fine">tap to mine ❄shards · buy miners for passive income · evolve · and when PayPal freezes you, beat the Compliance Dept to defrost</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY (demoted system notice) -->
   <div class="win">
-    <div class="bar"><span>⌨ system_notice.exe</span><span class="dots"><span></span><span></span><span></span></span></div>
+    <div class="bar"><span>⌨ system_notice.exe — why your pet keeps getting frozen</span><span class="dots"><span></span><span></span><span></span></span></div>
     <div class="in hero">
       <div class="term">
         &gt; incoming transmission from <span style="color:var(--pink)">PAYPAL</span>...<br/>
@@ -335,61 +450,6 @@
     <div class="stat"><b>1 in 5</b><span>eBay sellers</span></div>
   </div>
 
-  <!-- FROZEN TAMAGOTCHI -->
-  <div class="win" id="game-win">
-    <div class="bar"><span>🥶 frozen_pet.exe — tap to mine ❄shards · idle · daily · saves to your browser</span><span class="dots"><span></span><span></span><span></span></span></div>
-    <div class="in">
-      <div class="pet" id="pet">
-        <div class="stage">
-          <span class="nm" id="pet-nm"></span>
-          <span class="age" id="pet-age"></span>
-          <img class="sprite bob" id="pet-sprite" src="assets/mila-pet-happy.png" alt="your pet" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src='assets/mila-pet-happy.png';}" title="tap me!"/>
-          <div class="ice"></div>
-          <div class="stamp">FROZEN</div>
-          <div class="combo" id="pet-combo"></div>
-          <div class="toast" id="pet-toast"></div>
-          <div class="bubble" id="pet-bubble">...</div>
-          <div class="bossfight" id="bossfight" style="display:none">
-            <div class="boss-label">⚔ THE COMPLIANCE DEPARTMENT</div>
-            <img class="boss-img" id="boss-img" src="assets/boss.jpg" alt="boss" title="ATTACK!"/>
-            <div class="boss-hpwrap"><div class="boss-hp"><i id="boss-hp-bar"></i></div><span id="boss-hp-txt"></span></div>
-            <div class="boss-hint" id="boss-hint">tap the boss to fight! (taps deal damage)</div>
-          </div>
-        </div>
-        <div class="ctl">
-          <div id="pet-live" style="display:none">
-            <div class="wallet"><span>❄ <b id="v-shards">0</b></span><span class="rate" id="v-rate"></span><span>Lv <b id="v-lvl">1</b> · <span id="v-title">Frostling</span></span></div>
-            <div class="bar2 xp"><i id="b-xp"></i></div>
-            <div class="meter" style="margin-top:8px"><div class="lab"><span>🍱 Fed</span><span id="v-hunger">—</span></div><div class="bar2 hunger"><i id="b-hunger"></i></div></div>
-            <div class="meter" style="margin-top:7px"><div class="lab"><span>💖 Happy</span><span id="v-happy">—</span></div><div class="bar2 happy"><i id="b-happy"></i></div></div>
-            <div class="meter" style="margin-top:7px"><div class="lab"><span>🔥 Warm</span><span id="v-warmth">—</span></div><div class="bar2 warmth"><i id="b-warmth"></i></div></div>
-            <div class="actions" style="margin-top:11px">
-              <button class="pbtn" id="a-feed">🍱 Feed</button>
-              <button class="pbtn" id="a-play">🎮 Play</button>
-              <button class="pbtn" id="a-warm">🔥 Warm</button>
-            </div>
-            <div class="panel" id="miners"></div>
-            <div class="panel" id="stake"></div>
-            <div class="shop">
-              <button class="ubtn" id="u-tap">👆 Tap+ <small>Lv<span id="lv-tap">0</span></small><b id="c-tap">25❄</b></button>
-              <button class="ubtn" id="u-coat">🧥 Coat <small>Lv<span id="lv-coat">0</span></small><b id="c-coat">60❄</b></button>
-            </div>
-            <div id="extra"></div>
-            <div class="streak" id="pet-streak" style="margin-top:9px"></div>
-            <div style="margin-top:8px"><button class="pbtn share" id="a-share" style="width:100%">📤 brag on X</button></div>
-          </div>
-          <div id="pet-bureau" style="display:none"></div>
-          <div class="adopt" id="pet-adopt" style="display:none">
-            <p>a stray frozen chibi appeared on your network. name it &amp; adopt:</p>
-            <input id="pet-name" maxlength="16" placeholder="name your pet" />
-            <div style="margin-top:12px"><button class="pbtn" id="a-adopt" style="width:60%">★ ADOPT ★</button></div>
-            <p style="font-size:11px;color:#789;margin-top:12px">⚠ tap to mine ❄shards, buy miners for passive income, evolve, and beat the Compliance Dept to skip the Peanut waitlist. PayPal freezes you at random — only Peanut defrosts instantly &amp; free.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- WALL OF PAIN -->
   <div class="win">
     <div class="bar"><span>💀 wall_of_pain.html — 26 fact-checked testimonies</span><span class="dots"><span></span><span></span><span></span></span></div>
@@ -400,17 +460,20 @@
     </div>
   </div>
 
-  <!-- ESCAPE / PEANUT -->
-  <div class="win escape">
+  <!-- USE PEANUT INSTEAD (small CTA + value props) -->
+  <div class="win usepeanut">
+    <div class="bar"><span>☮ use_peanut_instead.exe</span><span class="dots"><span></span><span></span><span></span></span></div>
     <div class="in">
-      <img class="esc-mascot" src="assets/mila-angel.png" alt="" onerror="this.style.display='none'"/>
-      <h2>ESCAPE THE FREEZE</h2>
-      <p>not your keys, not your coins. no 180-day holds on your own money. clear fees. cross-border without the conversion games.</p>
-      <a class="portal ice" id="peanut-portal" href="https://peanut.me?utm_source=antipaypal&utm_medium=referral&utm_campaign=cypherpunk" rel="noopener" target="_blank">&gt;&gt; peanut.me &lt;&lt;</a>
-      <div class="badges" style="margin-top:14px;">
-        <span class="wbtn gn">[ POWERED BY ☮ PEANUT ]</span>
-        <span class="wbtn pk">[ ❄ DEFROST YOUR MONEY ❄ ]</span>
+      <div>
+        <h3>IN REAL LIFE, THERE'S NO BOSS TO BEAT.</h3>
+        <ul class="vprops">
+          <li>☮ <b>not your keys, not your coins</b> — self-custody, your money is yours</li>
+          <li>❄ <b>no 180-day holds</b> — nobody can freeze you on a whim</li>
+          <li>💸 <b>clear fees</b> — no conversion games, no surprise deductions</li>
+          <li>🌍 <b>cross-border in seconds</b> — send anywhere, instantly</li>
+        </ul>
       </div>
+      <a class="upcta" id="peanut-portal" href="https://peanut.me?utm_source=antipaypal&utm_medium=referral&utm_campaign=cypherpunk" rel="noopener" target="_blank">use Peanut instead →<small>peanut.me</small></a>
     </div>
   </div>
 
@@ -566,7 +629,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   const def=()=>({adopted:false,name:'',hunger:65,happy:65,warmth:65,lastTick:Date.now(),frozenUntil:0,
     streak:0,lastDay:'',born:Date.now(),defrosts:0,shards:0,xp:0,level:1,taps:0,maxShards:0,evo:0,
     up:{tap:0,coat:0}, nodes:{node:0,rig:0,farm:0,qnode:0}, staked:0,stakeUntil:0,
-    keys:0,prestiges:0,bossBeaten:false,lore:{},bureau:null,boss:null,ach:{}});
+    keys:0,prestiges:0,bossBeaten:false,bossWins:0,lore:{},bureau:null,boss:null,ach:{}});
   let s=Object.assign(def(),load()||{});
   s.up=Object.assign({tap:0,coat:0},s.up||{}); s.nodes=Object.assign({node:0,rig:0,farm:0,qnode:0},s.nodes||{}); s.ach=s.ach||{}; s.lore=s.lore||{};
   try{ if(location.hash.startsWith('#s=')){ const j=JSON.parse(atob(decodeURIComponent(location.hash.slice(3))));
@@ -644,8 +707,8 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     {id:'s50k',t:'🏆 50,000 ❄',f:()=>s.maxShards>=50000},
     {id:'miner',t:'🏆 First miner',f:()=>NODES.some(n=>s.nodes[n.id]>0)},
     {id:'combo',t:'🏆 Combo x5!',f:()=>combo>=5},
-    {id:'defrost',t:'🏆 Peanut defrost',f:()=>s.defrosts>=1},
     {id:'boss',t:'🏆 Beat the Compliance Dept!',f:()=>s.bossBeaten},
+    {id:'boss5',t:'🏆 Defrosted 5×',f:()=>(s.bossWins||0)>=5},
     {id:'prestige',t:'🏆 Went full self-custody',f:()=>s.prestiges>=1},
     {id:'goddess',t:'🏆 Cryo Goddess',f:()=>evoIdx()>=4},
   ];
@@ -677,36 +740,26 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 
   function prestige(){ const g=prestigeGain(); if(g<1){toast('reach 10k ❄ first');return;}
     if(!confirm('Go full self-custody? Resets shards, miners, upgrades, level & evolution — but +'+g+' keys (permanent +'+(g*25)+'% forever).'))return;
-    const keep={name:s.name,born:s.born,streak:s.streak,lastDay:s.lastDay,defrosts:s.defrosts,keys:(s.keys||0)+g,prestiges:(s.prestiges||0)+1,bossBeaten:s.bossBeaten,lore:s.lore,ach:s.ach};
+    const keep={name:s.name,born:s.born,streak:s.streak,lastDay:s.lastDay,bossWins:s.bossWins,keys:(s.keys||0)+g,prestiges:(s.prestiges||0)+1,bossBeaten:s.bossBeaten,lore:s.lore,ach:s.ach};
     s=Object.assign(def(),{adopted:true},keep); s.shards=50; s.maxShards=50; nextFreeze=Date.now()+freezeGap(); toast('🔑 self-custody! +'+g+' keys'); burstStage(); persist(); render(); }
 
-  function startBoss(){ if(s.bossBeaten||inBoss())return; const max=Math.floor(320*(1+(s.keys||0)*0.5));
-    s.boss={hp:max,max}; bossStun=0; toast('⚔ FIGHT! tap the boss'); persist(); render(); }
+  function bossDmg(){ return tapValue()*4; }
+  function startBossFight(){ const base=Math.max(1,Math.round((1+s.up.tap)*prestigeMult()*evoMult()));
+    const max=Math.max(40,base*4*14); s.boss={hp:max,max}; bossStun=0; persist(); }
   function bossHit(){ if(!inBoss())return; if(Date.now()<bossStun){flo('HOLD!','#ff6b6b',$('bossfight'));return;}
-    const dmg=tapValue()*4; s.boss.hp-=dmg; flo('-'+dmg,'#ff6b6b',$('bossfight'));
-    if(Math.random()<0.12){ bossStun=Date.now()+1600; toast('🧊 boss placed a HOLD (taps blocked)'); }
+    const dmg=bossDmg(); s.boss.hp-=dmg; flo('-'+fmt(dmg),'#ff6b6b',$('bossfight'));
+    if(Math.random()<0.12){ bossStun=Date.now()+1400; toast('🧊 PayPal placed a HOLD (taps blocked)'); }
     if(s.boss.hp<=0) winBoss(); else { persist(); renderBoss(); } }
-  function winBoss(){ s.bossBeaten=true; s.boss=null; const rw=Math.floor(800*(1+(s.keys||0)*0.5)); s.shards+=rw; s.maxShards=Math.max(s.maxShards,s.shards);
-    burstStage(); toast('🏆 You beat the Compliance Department! +'+fmt(rw)+' ❄'); say('you’re free of the bureaucracy. claim your Peanut invite ↓'); checkAch(); persist(); render(); }
+  function winBoss(){ const first=!s.bossBeaten; s.bossBeaten=true; s.bossWins=(s.bossWins||0)+1; s.boss=null;
+    s.frozenUntil=0; document.body.classList.remove('frozenpage'); nextFreeze=Date.now()+freezeGap();
+    const rw=Math.floor(140*(1+(s.keys||0)*0.5)+passiveRate()*25); s.shards+=rw; s.maxShards=Math.max(s.maxShards,s.shards);
+    burstStage(); toast('🏆 DEFROSTED! you beat the Compliance Dept +'+fmt(rw)+' ❄');
+    say(first?"you fought your way out! IRL there's no boss to beat — that's the whole point ☮":'defrosted again. PayPal will be back… Peanut never freezes you ☮');
+    checkAch(); persist(); render(); }
 
-  function newBureau(){ return {reason:REASONS[Math.floor(Math.random()*REASONS.length)],
-    phase:'docs', docs:[{n:'Photo ID',ok:false},{n:'Utility bill',ok:false},{n:'Business invoice',ok:false},{n:'Notarized letter',ok:false}],
-    moreCount:0, until:0, phoneStep:0, extra:''}; }
-  function doFreeze(){ if(inBoss())return; s.frozenUntil=Date.now()+FREEZE_MS; s.bureau=newBureau(); nextFreeze=s.frozenUntil+freezeGap();
-    document.body.classList.add('frozenpage'); persist(); toast('❄ PayPal froze your pet!'); render(); }
-  function thaw(msg){ s.frozenUntil=0; s.bureau=null; document.body.classList.remove('frozenpage'); nextFreeze=Date.now()+freezeGap(); if(msg)toast(msg); persist(); render(); }
-  function defrost(){ s.defrosts++; thaw('✨ defrosted by Peanut — instant & free 😉'); say("see? one tap. self-custody doesn’t freeze."); checkAch();
-    window.open('https://peanut.me?utm_source=antipaypal&utm_medium=pet_defrost&utm_campaign=cypherpunk','_blank','noopener'); }
-  function bureauAct(kind,i){ const B=s.bureau; if(!B)return;
-    if(kind==='doc'){ B.docs[i].ok=true; persist(); renderBureau(); return; }
-    if(kind==='submit'){ B.phase='review'; B.until=Date.now()+8000; persist(); renderBureau(); return; }
-    if(kind==='moredoc'){ B.moreCount++; B.phase='review'; B.until=Date.now()+8000; B.extra=''; persist(); renderBureau(); return; }
-    if(kind==='appeal'){ B.phase='appealwait'; B.until=Date.now()+6000; persist(); renderBureau(); return; }
-    if(kind==='phone'){ B.phoneStep++; if(B.phoneStep>=3) B.phase='phonedone'; persist(); renderBureau(); return; }
-    if(kind==='giveup'){ thaw('🫠 finally thawed — that gauntlet was the point. Peanut is one tap.'); return; } }
-  function bureauTick(){ const B=s.bureau; if(!B)return; const now=Date.now();
-    if(B.phase==='review'&&now>=B.until){ if(B.moreCount<2&&Math.random()<0.6){ B.phase='moredocs'; B.extra=EXTRA_DOCS[Math.floor(Math.random()*EXTRA_DOCS.length)]; } else B.phase='appeal'; persist(); }
-    else if(B.phase==='appealwait'&&now>=B.until){ B.phase='denied'; persist(); } }
+  function doFreeze(){ if(inBoss()||frozen()||!s.adopted)return; s.frozenUntil=Date.now()+FREEZE_MS;
+    startBossFight(); document.body.classList.add('frozenpage'); persist();
+    toast('❄ PayPal FROZE your pet — beat the Compliance Dept to defrost'); render(); }
 
   function dailyCheck(){ const t=today(); if(s.lastDay===t)return false; const y=new Date(Date.now()-DAY).toISOString().slice(0,10);
     s.streak=(s.lastDay===y)?s.streak+1:1; s.lastDay=t; const bonus=25+s.streak*15; s.shards+=bonus;
@@ -723,43 +776,23 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     else h='<div class="ph">🔒 STAKE (2min, +'+Math.round(stakeApr()*100)+'% — unlike a 180-day hold)</div><button class="sbtn" id="b-stake">stake 50% ('+fmt(Math.floor(s.shards*0.5))+' ❄)</button>';
     $('stake').innerHTML=h; const cl=$('b-claim'); if(cl)cl.onclick=claimStake; const st=$('b-stake'); if(st)st.onclick=stake; }
   function renderExtra(){ let h='';
-    if(s.bossBeaten) h+='<a class="invitecta" href="'+INVITE+'" target="_blank" rel="noopener">🎟 SKIP THE PEANUT WAITLIST →</a>';
-    else if(evoIdx()>=2) h+='<button class="bossbtn" id="b-boss">⚔ FIGHT THE COMPLIANCE DEPT</button>';
     if(canPrestige()) h+='<button class="prebtn" id="b-pre">🔑 GO FULL SELF-CUSTODY (+'+prestigeGain()+' keys)</button>';
-    $('extra').innerHTML=h; const bb=$('b-boss'); if(bb)bb.onclick=startBoss; const pb=$('b-pre'); if(pb)pb.onclick=prestige; }
+    h+='<a class="invitecta" href="'+INVITE+'" target="_blank" rel="noopener">☮ tired of freezes? use Peanut instead →</a>';
+    $('extra').innerHTML=h; const pb=$('b-pre'); if(pb)pb.onclick=prestige; }
   function renderBoss(){ if(!inBoss())return; const pct=Math.max(0,100*s.boss.hp/s.boss.max);
     $('boss-hp-bar').style.width=pct+'%'; $('boss-hp-txt').textContent=fmt(Math.max(0,s.boss.hp))+' / '+fmt(s.boss.max);
     $('boss-hint').textContent=Date.now()<bossStun?'🧊 HOLD PLACED — taps blocked!':'tap the boss! (×4 tap damage)'; }
-  function renderBureau(){ const B=s.bureau; if(!B){ $('pet-bureau').style.display='none'; return; } $('pet-bureau').style.display='block';
-    let h='<div class="bhead">❄ ACCOUNT FROZEN</div><div class="breason">Reason: '+B.reason+'</div>';
-    if(B.phase==='docs'){ h+='<div class="bsub">PayPal requires documents:</div><div class="bdocs">';
-      B.docs.forEach((d,i)=>h+='<button class="dbtn'+(d.ok?' ok':'')+'" data-doc="'+i+'">'+(d.ok?'✓ ':'📎 ')+d.n+'</button>');
-      h+='</div>'; if(B.docs.every(d=>d.ok)) h+='<button class="bact" data-act="submit">Submit to PayPal →</button>'; }
-    else if(B.phase==='review'){ const left=Math.max(0,Math.ceil((B.until-Date.now())/1000)); h+='<div class="bwait">⏳ Under review… '+left+'s</div>'; }
-    else if(B.phase==='moredocs'){ h+='<div class="bsub">❌ We require ONE more document:</div><div class="bdocs"><button class="dbtn" data-act="moredoc">📎 '+B.extra+'</button></div>'; }
-    else if(B.phase==='appeal'){ h+='<div class="bsub">Your account remains limited.</div><button class="bact" data-act="appeal">File an appeal</button>'; }
-    else if(B.phase==='appealwait'){ const left=Math.max(0,Math.ceil((B.until-Date.now())/1000)); h+='<div class="bwait">⏳ Reviewing appeal… '+left+'s</div>'; }
-    else if(B.phase==='denied'){ h+='<div class="bquote">“This is our final decision and will not be appealed.”</div><button class="bact" data-act="phone">☎ Call support</button>'; }
-    else if(B.phase==='phone'){ const m=['Press 1 — holds & limitations','Press 2 — billing','Press 3 — speak to an agent']; h+='<div class="bsub">'+(B.phoneStep===0?'☎ Welcome to PayPal support.':'…transferring you…')+'</div><button class="bact" data-act="phone">'+m[B.phoneStep%3]+'</button>'; }
-    else if(B.phase==='phonedone'){ h+='<div class="bsub">🏢 You’ve reached the Frozen Funds Department.</div><div class="breason">They are closed. Please hold for 180 years.</div><button class="bact" data-act="giveup">give up & wait it out 🫠</button>'; }
-    h+='<a class="bpeanut" id="b-defrost">❄ DEFROST WITH PEANUT — instant & free</a>';
-    $('pet-bureau').innerHTML=h;
-    $('pet-bureau').querySelectorAll('[data-doc]').forEach(b=>b.onclick=()=>bureauAct('doc',+b.dataset.doc));
-    $('pet-bureau').querySelectorAll('[data-act]').forEach(b=>b.onclick=()=>bureauAct(b.dataset.act));
-    const df=$('b-defrost'); if(df)df.onclick=defrost; }
-
   function render(){ const fr=frozen(), bz=inBoss(); if(s.adopted&&!bz) checkEvo();
     $('pet-adopt').style.display=s.adopted?'none':'block';
+    $('pet').style.display=s.adopted?'':'none';
     $('pet-live').style.display=(s.adopted&&!fr&&!bz)?'block':'none';
-    $('pet-bureau').style.display=(s.adopted&&fr&&!bz)?'block':'none';
     $('bossfight').style.display=bz?'flex':'none';
     petEl.classList.toggle('frozen',fr); petEl.classList.toggle('boss',bz);
     sprite.style.display=bz?'none':''; sprite.classList.toggle('bob',!fr&&s.adopted&&!bz); sprite.src=fr?FROZEN_IMG:evoImg();
     $('pet-nm').textContent=s.adopted?('★ '+s.name+(s.keys?(' · 🔑'+s.keys):'')):''; $('pet-age').textContent=s.adopted?('day '+(Math.floor((Date.now()-s.born)/DAY)+1)):'';
     if(s.adopted){ $('hud').style.display='flex'; $('hud-pet').src=fr?FROZEN_IMG:evoImg(); $('hud-shards').textContent='❄'+fmt(s.shards);
-      $('hud-status').textContent=fr?'FROZEN ❄':(bz?'⚔ BOSS':('+'+passiveRate().toFixed(1)+'/s')); $('hud').classList.toggle('fz',fr); }
+      $('hud-status').textContent=bz?'⚔ FIGHTING':(fr?'FROZEN ❄':('+'+passiveRate().toFixed(1)+'/s')); $('hud').classList.toggle('fz',fr); }
     if(bz){ renderBoss(); return; }
-    if(fr){ renderBureau(); return; }
     if(!s.adopted) return;
     $('v-shards').textContent=fmt(s.shards); $('v-rate').textContent='+'+passiveRate().toFixed(1)+'/s';
     $('v-lvl').textContent=s.level; $('v-title').textContent=title(); $('b-xp').style.width=Math.min(100,100*s.xp/xpNeed())+'%';
@@ -769,12 +802,12 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     ['tap','coat'].forEach(k=>{ const lv=s.up[k],max=lv>=MAX[k]; $('lv-'+k).textContent=lv; $('c-'+k).textContent=max?'MAX':fmt(COST[k](lv))+'❄'; $('u-'+k).classList.toggle('cant',max||s.shards<COST[k](lv)); });
     renderMiners(); renderStake(); renderExtra();
     const ei=evoIdx(), nxt=EVOS[ei+1];
-    $('pet-streak').innerHTML='🧬 '+EVOS[ei].name+(nxt?' · next '+fmt(nxt.min)+'❄':' · MAX')+' &nbsp;|&nbsp; 🔥'+s.streak+' · ❄def '+s.defrosts+' · 🔑'+(s.keys||0)+(s.bossBeaten?' · 🏆':''); }
+    $('pet-streak').innerHTML='🧬 '+EVOS[ei].name+(nxt?' · next '+fmt(nxt.min)+'❄':' · MAX')+' &nbsp;|&nbsp; 🔥'+s.streak+' · 🏆'+(s.bossWins||0)+' defrosts · 🔑'+(s.keys||0); }
 
   function adopt(){ const nm=(($('pet-name').value||'').trim().slice(0,16))||'Mila'; const born=Date.now();
     s=Object.assign(def(),{adopted:true,name:nm,born,lastDay:today(),streak:1,shards:25,maxShards:25});
     nextFreeze=Date.now()+20000+Math.random()*18000; persist(); say("yay! adopted 💞 tap me to mine ❄"); toast('welcome! +25 ❄'); render(); }
-  function shareX(){ const txt='my frozen lil cypherpunk pet mined '+fmt(s.maxShards)+' ❄, survived '+s.defrosts+' PayPal freezes'+(s.bossBeaten?' & beat the Compliance Dept 🏆':'')+'. adopt one (& learn why PayPal sucks):';
+  function shareX(){ const txt='my frozen lil cypherpunk pet mined '+fmt(s.maxShards)+' ❄ & fought off the PayPal Compliance Dept '+(s.bossWins||0)+'×. adopt one (& learn why PayPal sucks):';
     window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt)+'&url='+encodeURIComponent('https://antipaypal.club'),'_blank','noopener'); }
 
   sprite.addEventListener('click',tapPet); $('boss-img').addEventListener('click',bossHit);
@@ -791,7 +824,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     cards.forEach(c=>io.observe(c)); },1500);
 
   const boot=decay();
-  if(frozen()){ document.body.classList.add('frozenpage'); nextFreeze=s.frozenUntil+freezeGap(); if(!s.bureau)s.bureau=newBureau(); }
+  if(frozen()||inBoss()){ document.body.classList.add('frozenpage'); if(!inBoss())startBossFight(); nextFreeze=Date.now()+freezeGap(); }
   else nextFreeze=Date.now()+freezeGap();
   if(s.adopted){ if(boot.dt>20&&boot.mined>=1) toast('⛏ while away: +'+fmt(boot.mined)+' ❄'); const nd=dailyCheck(); persist(); if(!nd&&!frozen()&&!inBoss()) say(idle()); } else say('adopt me? 🥺');
   checkAch(); render();
@@ -799,8 +832,6 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   let idleT=0;
   setInterval(()=>{ decay();
     if(inBoss()){ renderBoss(); persist(); return; }
-    if(!frozen()&&s.bureau) thaw('🫠 the hold expired — Peanut would’ve been instant.');
-    if(frozen()){ bureauTick(); render(); persist(); return; }
     claimStake();
     if(s.adopted&&Date.now()>=nextFreeze) doFreeze();
     else if(s.adopted&&Date.now()>=nextEvent){ nextEvent=Date.now()+35000+Math.random()*45000; const r=Math.random();

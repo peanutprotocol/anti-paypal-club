@@ -306,7 +306,16 @@
     animation:slide 3s linear infinite,pulse 1.3s ease-in-out infinite;font-family:Impact,sans-serif;letter-spacing:1px;}
   .pbtn.big:hover{filter:brightness(1.08);}
 
-  /* === boss = the defrost moment === */
+  /* === boss = the defrost moment (with bureaucracy) === */
+  .boss-reason{font-family:"Courier New",monospace;font-size:11px;color:#ffd0d0;text-align:center;max-width:340px;line-height:1.4;}
+  .boss-reason b{color:#fff;}
+  .boss-reason .quip{color:var(--gold);font-style:italic;}
+  .boss-doc{font-family:"Courier New",monospace;font-size:12px;color:#ffd0d0;text-align:center;max-width:320px;line-height:1.45;
+    background:rgba(255,80,80,.12);border:1px dashed #ff6b6b;padding:8px 10px;}
+  .boss-doc b{color:#fff;}
+  .bossdoc-btn{margin-top:7px;cursor:pointer;font-family:"Courier New",monospace;font-weight:bold;font-size:13px;
+    border:2px solid var(--cyan);background:#04131a;color:var(--cyan);padding:8px 12px;text-shadow:0 0 4px var(--cyan);}
+  .bossdoc-btn:hover{background:#072330;}
   .boss-sub{font-family:"Courier New",monospace;font-size:11.5px;color:#ffb3b3;text-align:center;max-width:320px;line-height:1.4;}
   .boss-peanut{display:inline-block;margin-top:2px;font-family:"Courier New",monospace;font-size:11px;text-decoration:none;
     color:var(--gold);border-bottom:1px dotted var(--gold);text-shadow:0 0 5px rgba(255,210,63,.5);}
@@ -375,9 +384,10 @@
           <div class="bubble" id="pet-bubble">...</div>
           <div class="bossfight" id="bossfight" style="display:none">
             <div class="boss-label">❄ FROZEN — ⚔ THE COMPLIANCE DEPARTMENT</div>
-            <div class="boss-sub">PayPal placed a hold on your pet. <b>tap the boss to fight your way out</b> — that's the only way to defrost.</div>
+            <div class="boss-reason" id="boss-reason"></div>
             <img class="boss-img" id="boss-img" src="assets/boss.jpg" alt="boss" title="ATTACK!"/>
             <div class="boss-hpwrap"><div class="boss-hp"><i id="boss-hp-bar"></i></div><span id="boss-hp-txt"></span></div>
+            <div class="boss-doc" id="boss-doc" style="display:none"></div>
             <div class="boss-hint" id="boss-hint">tap the boss! (taps deal damage)</div>
             <a class="boss-peanut" href="https://peanut.me/invite?code=squirrelinvitesyou&utm_source=antipaypal&utm_medium=boss_screen&utm_campaign=cypherpunk" target="_blank" rel="noopener">tired of this? use Peanut instead — it never freezes you →</a>
           </div>
@@ -643,10 +653,12 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 
   const EVOS=[
     {name:'Frozen Egg',min:0,img:'assets/mila-egg.png'},
-    {name:'Frostling',min:150,img:'assets/mila-pet-happy.png'},
-    {name:'Ice Cadet',min:600,img:'assets/mila-cadet.png'},
-    {name:'Cyber Maiden',min:2500,img:'assets/mila-maiden.png'},
-    {name:'Cryo Goddess',min:8000,img:'assets/mila-goddess.png'},
+    {name:'Frostling',min:30,img:'assets/mila-pet-happy.png'},
+    {name:'Ice Cadet',min:140,img:'assets/mila-cadet.png'},
+    {name:'Cyber Hacker',min:420,img:'assets/mila-hacker.png'},
+    {name:'Cyber Maiden',min:1100,img:'assets/mila-maiden.png'},
+    {name:'Frost Angel',min:3200,img:'assets/mila-angel.png'},
+    {name:'Cryo Goddess',min:8500,img:'assets/mila-goddess.png'},
   ];
   const evoIdx=()=>{ let i=0; const m=s.maxShards||0; for(let k=0;k<EVOS.length;k++) if(m>=EVOS[k].min) i=k; return i; };
   const evoImg=()=>EVOS[evoIdx()].img;
@@ -710,7 +722,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     {id:'boss',t:'🏆 Beat the Compliance Dept!',f:()=>s.bossBeaten},
     {id:'boss5',t:'🏆 Defrosted 5×',f:()=>(s.bossWins||0)>=5},
     {id:'prestige',t:'🏆 Went full self-custody',f:()=>s.prestiges>=1},
-    {id:'goddess',t:'🏆 Cryo Goddess',f:()=>evoIdx()>=4},
+    {id:'goddess',t:'🏆 Cryo Goddess',f:()=>evoIdx()>=EVOS.length-1},
   ];
   function checkAch(){ ACH.forEach(a=>{ if(!s.ach[a.id]&&a.f()){ s.ach[a.id]=1; toast(a.t); } }); }
   function checkEvo(){ s.maxShards=Math.max(s.maxShards||0,s.shards); const i=evoIdx();
@@ -743,12 +755,24 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     const keep={name:s.name,born:s.born,streak:s.streak,lastDay:s.lastDay,bossWins:s.bossWins,keys:(s.keys||0)+g,prestiges:(s.prestiges||0)+1,bossBeaten:s.bossBeaten,lore:s.lore,ach:s.ach};
     s=Object.assign(def(),{adopted:true},keep); s.shards=50; s.maxShards=50; nextFreeze=Date.now()+freezeGap(); toast('🔑 self-custody! +'+g+' keys'); burstStage(); persist(); render(); }
 
+  const BQUIPS=['"Your case is important to us."','"This is under review."','"Please continue to hold."','"Transferring you to another department…"','"We are unable to disclose why."','"This is our final decision and will not be appealed."'];
+  const rnd=a=>a[Math.floor(Math.random()*a.length)];
   function bossDmg(){ return tapValue()*4; }
   function startBossFight(){ const base=Math.max(1,Math.round((1+s.up.tap)*prestigeMult()*evoMult()));
-    const max=Math.max(40,base*4*14); s.boss={hp:max,max}; bossStun=0; persist(); }
-  function bossHit(){ if(!inBoss())return; if(Date.now()<bossStun){flo('HOLD!','#ff6b6b',$('bossfight'));return;}
+    const max=Math.max(40,base*4*14);
+    s.boss={hp:max,max,reason:rnd(REASONS),caseNo:'#'+(100000+Math.floor(Math.random()*900000)),doc:null,docsDone:0,quip:''};
+    bossStun=0; persist(); }
+  function demandDoc(){ s.boss.doc=rnd(EXTRA_DOCS); s.boss.quip=rnd(BQUIPS);
+    toast('📋 the Compliance Dept demands MORE paperwork'); persist(); renderBoss(); }
+  function submitDoc(){ if(!inBoss()||!s.boss.doc)return; s.boss.docsDone=(s.boss.docsDone||0)+1; s.boss.doc=null; s.boss.quip=rnd(BQUIPS);
+    flo('✓ filed','#39ff14',$('bossfight')); toast('🗂 filed — keep attacking, they\'ll "review" it'); persist(); renderBoss(); }
+  function bossHit(){ if(!inBoss())return;
+    if(s.boss.doc){ flo('📎 FILE THE DOC!','#ff6b6b',$('bossfight')); return; }
+    if(Date.now()<bossStun){ flo('HOLD!','#ff6b6b',$('bossfight')); return; }
     const dmg=bossDmg(); s.boss.hp-=dmg; flo('-'+fmt(dmg),'#ff6b6b',$('bossfight'));
-    if(Math.random()<0.12){ bossStun=Date.now()+1400; toast('🧊 PayPal placed a HOLD (taps blocked)'); }
+    if(s.boss.hp>0 && Math.random()<0.10){ bossStun=Date.now()+1300; toast('🧊 PayPal placed a HOLD (taps blocked)'); }
+    const pct=s.boss.hp/s.boss.max, done=s.boss.docsDone||0;
+    if(s.boss.hp>0 && ((done<1&&pct<=0.66)||(done<2&&pct<=0.33))){ demandDoc(); }
     if(s.boss.hp<=0) winBoss(); else { persist(); renderBoss(); } }
   function winBoss(){ const first=!s.bossBeaten; s.bossBeaten=true; s.bossWins=(s.bossWins||0)+1; s.boss=null;
     s.frozenUntil=0; document.body.classList.remove('frozenpage'); nextFreeze=Date.now()+freezeGap();
@@ -781,7 +805,14 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     $('extra').innerHTML=h; const pb=$('b-pre'); if(pb)pb.onclick=prestige; }
   function renderBoss(){ if(!inBoss())return; const pct=Math.max(0,100*s.boss.hp/s.boss.max);
     $('boss-hp-bar').style.width=pct+'%'; $('boss-hp-txt').textContent=fmt(Math.max(0,s.boss.hp))+' / '+fmt(s.boss.max);
-    $('boss-hint').textContent=Date.now()<bossStun?'🧊 HOLD PLACED — taps blocked!':'tap the boss! (×4 tap damage)'; }
+    $('boss-reason').innerHTML='Case '+(s.boss.caseNo||'')+' · reason: <b>'+(s.boss.reason||'—')+'</b>'+(s.boss.quip?'<br><span class="quip">'+s.boss.quip+'</span>':'');
+    const docEl=$('boss-doc');
+    if(s.boss.doc){ docEl.style.display='block';
+      docEl.innerHTML='❌ <b>HOLD:</b> before you can continue, the Compliance Dept requires <b>'+s.boss.doc+'</b>.<br><button class="bossdoc-btn" id="boss-doc-btn">📎 Submit '+s.boss.doc+'</button>';
+      const db=$('boss-doc-btn'); if(db)db.onclick=submitDoc;
+      $('boss-hint').textContent='📋 paperwork demanded — submit it to resume the fight'; }
+    else { docEl.style.display='none';
+      $('boss-hint').textContent=Date.now()<bossStun?'🧊 HOLD PLACED — taps blocked!':'tap the boss! (×4 tap damage)'; } }
   function render(){ const fr=frozen(), bz=inBoss(); if(s.adopted&&!bz) checkEvo();
     $('pet-adopt').style.display=s.adopted?'none':'block';
     $('pet').style.display=s.adopted?'':'none';
@@ -802,7 +833,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
     ['tap','coat'].forEach(k=>{ const lv=s.up[k],max=lv>=MAX[k]; $('lv-'+k).textContent=lv; $('c-'+k).textContent=max?'MAX':fmt(COST[k](lv))+'❄'; $('u-'+k).classList.toggle('cant',max||s.shards<COST[k](lv)); });
     renderMiners(); renderStake(); renderExtra();
     const ei=evoIdx(), nxt=EVOS[ei+1];
-    $('pet-streak').innerHTML='🧬 '+EVOS[ei].name+(nxt?' · next '+fmt(nxt.min)+'❄':' · MAX')+' &nbsp;|&nbsp; 🔥'+s.streak+' · 🏆'+(s.bossWins||0)+' defrosts · 🔑'+(s.keys||0); }
+    $('pet-streak').innerHTML='🧬 '+EVOS[ei].name+' <span style="color:var(--green)">+'+Math.round((evoMult()-1)*100)+'%</span>'+(nxt?' · next '+fmt(nxt.min)+'❄':' · MAX')+' &nbsp;|&nbsp; 🔥'+s.streak+' · 🏆'+(s.bossWins||0)+' defrosts · 🔑'+(s.keys||0); }
 
   function adopt(){ const nm=(($('pet-name').value||'').trim().slice(0,16))||'Mila'; const born=Date.now();
     s=Object.assign(def(),{adopted:true,name:nm,born,lastDay:today(),streak:1,shards:25,maxShards:25});
